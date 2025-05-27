@@ -1,6 +1,6 @@
 package com.example.timeline.Controller;
 
-import com.example.timeline.HelloApplication;
+import com.example.timeline.Main;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -15,7 +15,7 @@ public class AcceuilController {
 
     @FXML
     void onClickCollection(ActionEvent event) throws IOException {
-        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("Collection.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource("Collection.fxml"));
         Scene collectionScene = new Scene(fxmlLoader.load(), 950, 635);
         mainStage.setTitle("Collection");
         mainStage.setScene(collectionScene);
@@ -25,7 +25,7 @@ public class AcceuilController {
 
     @FXML
     void onClickJouer(ActionEvent event) throws IOException {
-        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("ParametrePartie.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource("ParametrePartie.fxml"));
         Scene ParametrePartieScene = new Scene(fxmlLoader.load(), 950, 635);
         mainStage.setTitle("ParametrePartie");
         mainStage.setScene(ParametrePartieScene);
@@ -35,7 +35,7 @@ public class AcceuilController {
 
     @FXML
     void onClickParametre(ActionEvent event) throws IOException {
-        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("Parametre.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource("Parametre.fxml"));
         Scene parametreScene = new Scene(fxmlLoader.load(), 950, 635);
         mainStage.setTitle("Parametre");
         mainStage.setScene(parametreScene);
@@ -45,7 +45,7 @@ public class AcceuilController {
 
     @FXML
     void onClickRegle(ActionEvent event) throws IOException {
-        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("Regles.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource("Regles.fxml"));
         Scene reglesScene = new Scene(fxmlLoader.load(), 950, 635);
         mainStage.setTitle("Regles");
         mainStage.setScene(reglesScene);
@@ -55,7 +55,7 @@ public class AcceuilController {
 
     @FXML
     void onClickReprendre(ActionEvent event) throws IOException {
-        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("Jouer.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource("Jouer.fxml"));
         Scene jouerScene = new Scene(fxmlLoader.load(), 950, 635);
         mainStage.setTitle("Jeux");
         mainStage.setScene(jouerScene);

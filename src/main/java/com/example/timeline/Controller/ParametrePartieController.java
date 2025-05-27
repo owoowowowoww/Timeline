@@ -1,6 +1,6 @@
 package com.example.timeline.Controller;
 
-import com.example.timeline.HelloApplication;
+import com.example.timeline.Main;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -41,7 +41,7 @@ public class ParametrePartieController {
 
     @FXML
     void onClickJouer(ActionEvent event) throws IOException {
-        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("Jouer.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource("Jouer.fxml"));
         Scene jouerScene = new Scene(fxmlLoader.load(), 950, 635);
         mainStage.setTitle("Jeux");
         mainStage.setScene(jouerScene);
