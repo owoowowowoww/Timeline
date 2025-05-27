@@ -5,6 +5,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 
 import java.io.IOException;
@@ -13,6 +14,9 @@ public class ParametrePartieController {
     private static final int NB_JOUEUR = 1;
     private int nbJoueur;
     public Stage mainStage;
+
+    @FXML
+    private TextField timeAnswer;
 
     public void setStage(Stage stage) {
         this.mainStage = stage;
@@ -44,4 +48,7 @@ public class ParametrePartieController {
         controller.setStage(mainStage);
     }
 
+    public int getTimeAnswer(){
+        return Integer.parseInt(timeAnswer.getText());
+    }
 }
