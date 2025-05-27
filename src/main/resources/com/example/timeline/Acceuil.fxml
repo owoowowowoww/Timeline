@@ -7,18 +7,24 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.VBox?>
 
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.timeline.Controller.AcceuilController">
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="635.0" prefWidth="950.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.timeline.Controller.AcceuilController">
    <children>
-      <ImageView fitHeight="406.0" fitWidth="674.0" layoutX="-29.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="635.0" fitWidth="950.0" layoutY="2.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@image/acceuil/accbg.jpeg" />
+            <Image url="@image/acceuil/accbg.png" />
          </image></ImageView>
-      <BorderPane prefHeight="400.0" prefWidth="600.0">
+      <BorderPane layoutX="-2.0" layoutY="-5.0" prefHeight="642.0" prefWidth="952.0">
          <top>
-            <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true" BorderPane.alignment="CENTER" />
+            <ImageView fitHeight="115.0" fitWidth="239.0" pickOnBounds="true" preserveRatio="true" BorderPane.alignment="CENTER">
+               <image>
+                  <Image url="@image/titretimeline.png" />
+               </image></ImageView>
          </top>
          <right>
-            <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true" BorderPane.alignment="CENTER" />
+            <ImageView fitHeight="403.0" fitWidth="592.0" pickOnBounds="true" preserveRatio="true" BorderPane.alignment="CENTER">
+               <image>
+                  <Image url="@image/imcartevers.png" />
+               </image></ImageView>
          </right>
          <left>
             <VBox prefHeight="200.0" prefWidth="100.0" BorderPane.alignment="CENTER">
