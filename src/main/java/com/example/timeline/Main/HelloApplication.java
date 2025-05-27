@@ -1,4 +1,4 @@
-package com.example.timeline;
+package com.example.timeline.Main;
 
 import com.example.timeline.Controller.AcceuilController;
 import javafx.application.Application;
@@ -7,7 +7,6 @@ import javafx.scene.Scene;
 import javafx.stage.Stage;
 
 import java.io.IOException;
-import com.example.timeline.Controller.AcceuilController;
 
 
 public class HelloApplication extends Application {

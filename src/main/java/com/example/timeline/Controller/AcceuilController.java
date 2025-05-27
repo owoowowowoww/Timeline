@@ -1,6 +1,6 @@
 package com.example.timeline.Controller;
 
-import com.example.timeline.HelloApplication;
+import com.example.timeline.Main.HelloApplication;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
