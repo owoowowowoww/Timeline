@@ -1,4 +1,4 @@
-package com.example.timeline.Main;
+package com.example.timeline;
 
 import com.example.timeline.Controller.AcceuilController;
 import javafx.application.Application;
