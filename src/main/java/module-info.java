@@ -5,4 +5,6 @@ module com.example.timeline {
 
     opens com.example.timeline to javafx.fxml;
     exports com.example.timeline;
+    exports com.example.timeline.Controller;
+    opens com.example.timeline.Controller to javafx.fxml;
 }

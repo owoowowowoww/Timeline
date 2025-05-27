@@ -1,5 +1,6 @@
-package com.example.timeline;
+package com.example.timeline.Controller;
 
+import com.example.timeline.HelloApplication;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -10,7 +11,7 @@ import java.io.IOException;
 
 public class AcceuilController {
 
-    Stage mainStage;
+    public Stage mainStage;
 
     @FXML
     void onClickCollection(ActionEvent event) throws IOException {
