@@ -7,7 +7,7 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.VBox?>
 
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1">
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.timeline.Controller.AcceuilController">
    <children>
       <ImageView fitHeight="406.0" fitWidth="674.0" layoutX="-29.0" pickOnBounds="true" preserveRatio="true">
          <image>
@@ -24,9 +24,9 @@
             <VBox prefHeight="200.0" prefWidth="100.0" BorderPane.alignment="CENTER">
                <children>
                   <Button mnemonicParsing="false" onAction="#onClickJouer" text="Jouer" textFill="WHITE" />
-                  <Button mnemonicParsing="false" onAction="#onCLickReprendre" text="reprendre" />
-                  <Button mnemonicParsing="false" onAction="#onClickCllection" text="Collection" />
-                  <Button mnemonicParsing="false" onAction="#onClickRegles" text="Regles" />
+                  <Button mnemonicParsing="false" onAction="#onClickReprendre" text="reprendre" />
+                  <Button mnemonicParsing="false" onAction="#onClickCollection" text="Collection" />
+                  <Button mnemonicParsing="false" onAction="#onClickRegle" text="Regles" />
                   <Button mnemonicParsing="false" onAction="#onClickParametre" text="Parametre" />
                </children>
             </VBox>
