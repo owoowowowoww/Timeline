@@ -24,11 +24,11 @@ public class AcceuilController {
 
     @FXML
     void onClickJouer(ActionEvent event) throws IOException {
-        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("Jouer.fxml"));
-        Scene jouerScene = new Scene(fxmlLoader.load(), 950, 635);
-        mainStage.setTitle("Jeux");
-        mainStage.setScene(jouerScene);
-        JouerController controller = fxmlLoader.getController();
+        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("ParametrePartie.fxml"));
+        Scene ParametrePartieScene = new Scene(fxmlLoader.load(), 950, 635);
+        mainStage.setTitle("ParametrePartie");
+        mainStage.setScene(ParametrePartieScene);
+        ParametrePartieController controller = fxmlLoader.getController();
         controller.setStage(mainStage);
     }
 
