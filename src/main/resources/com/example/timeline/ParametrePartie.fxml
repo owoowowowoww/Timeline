@@ -23,7 +23,7 @@
    <bottom>
       <HBox prefHeight="100.0" prefWidth="200.0" BorderPane.alignment="CENTER">
          <children>
-            <Button mnemonicParsing="false" text="Retour" />
+            <Button mnemonicParsing="false" onAction="#onClickRetour" text="Retour" />
             <Button mnemonicParsing="false" onAction="#onClickJouer" text="Jouer" />
          </children>
       </HBox>

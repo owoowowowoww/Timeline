@@ -52,4 +52,14 @@ public class ParametrePartieController {
     public int getTimeAnswer(){
         return Integer.parseInt(timeAnswer.getText());
     }
+
+    @FXML
+    void onClickRetour(ActionEvent event) throws IOException{
+        FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource("Acceuil.fxml"));
+        Scene acceuilScene = new Scene(fxmlLoader.load(), 950, 635);
+        mainStage.setTitle("Acceuil");
+        mainStage.setScene(acceuilScene);
+        AcceuilController controller = fxmlLoader.getController();
+        controller.setStage(mainStage);
+    }
 }

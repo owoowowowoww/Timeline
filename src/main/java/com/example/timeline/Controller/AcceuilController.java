@@ -13,6 +13,10 @@ public class AcceuilController {
 
     public Stage mainStage;
 
+    public void setStage(Stage stage) {
+        this.mainStage = stage;
+    }
+
     @FXML
     void onClickCollection(ActionEvent event) throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource("Collection.fxml"));
