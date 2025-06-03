@@ -33,4 +33,8 @@ public class PileOfCards {
     public void removeCard(Card c) {
         pileOfCards.remove(c);
     }
+
+    public List<Card> getPileOfCards (){
+        return pileOfCards;
+    }
 }

@@ -7,8 +7,9 @@ public class Card {
     private String title;
     private int date;
     private String description;
-	
-    public String getImage() {
+	private String urlImage;
+
+	public String getImage() {
 		return image;
 	}
 
@@ -38,6 +39,10 @@ public class Card {
 
 	public void setDescription(String description) {
 		this.description = description;
+	}
+
+	public String getUrlImage() {
+		return urlImage;
 	}
 
 	@Override

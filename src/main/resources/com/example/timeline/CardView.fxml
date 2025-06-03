@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.text.Font?>
+
+<StackPane alignment="CENTER" maxHeight="240.0" prefHeight="240.0" prefWidth="162.0" style="-fx-background-color: black;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1">
+	<children>
+      <Pane prefHeight="200.0" prefWidth="200.0" />
+		<BorderPane prefHeight="240.0" prefWidth="162.0">
+			<top>
+				<Label id="title" alignment="CENTER" contentDisplay="CENTER" prefHeight="20.0" prefWidth="140.0" style="-fx-background-color: #000a;" text="Ada Lovelace" textFill="WHITE" BorderPane.alignment="CENTER">
+					<padding>
+						<Insets top="0.0" />
+					</padding>
+					<font>
+						<Font size="18.0" />
+					</font>
+               <BorderPane.margin>
+                  <Insets top="30.0" />
+               </BorderPane.margin>
+				</Label>
+			</top>
+			<bottom>
+				<Label id="date" alignment="CENTER" contentDisplay="CENTER" prefHeight="30.0" prefWidth="140.0" text="" textAlignment="CENTER" textFill="LIME" BorderPane.alignment="CENTER">
+					<font>
+						<Font name="System Bold Italic" size="18.0" />
+					</font>
+					<padding>
+						<Insets bottom="0.0" />
+					</padding>
+               <BorderPane.margin>
+                  <Insets bottom="25.0" />
+               </BorderPane.margin>
+				</Label>
+			</bottom>
+			<center>
+				<ImageView id="image" fitHeight="100" fitWidth="112" pickOnBounds="true" preserveRatio="true" BorderPane.alignment="CENTER">
+					<image>
+					</image>
+				</ImageView>
+			</center>
+		</BorderPane>
+	</children>
+</StackPane>
