@@ -1,7 +1,7 @@
 package com.example.timeline.board;
 
 public class Player {
-    private final PileOfCards hand;
+    private PileOfCards hand;
     private String name;
 
     public Player(String name){

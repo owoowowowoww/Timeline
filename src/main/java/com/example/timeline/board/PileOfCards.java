@@ -7,7 +7,7 @@ import java.util.List;
 import java.util.Stack;
 
 public class PileOfCards {
-    private final List<Card> pileOfCards;
+    private List<Card> pileOfCards;
 
     public PileOfCards() {
         super();
@@ -32,5 +32,9 @@ public class PileOfCards {
 
     public void removeCard(Card c) {
         pileOfCards.remove(c);
+    }
+
+    public List<Card> getPileOfCards (){
+        return pileOfCards;
     }
 }
