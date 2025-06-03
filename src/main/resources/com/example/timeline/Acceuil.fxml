@@ -7,6 +7,7 @@
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
 
 <Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="635.0" prefWidth="950.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.timeline.Controller.AcceuilController">
    <children>
@@ -36,26 +37,41 @@
          <left>
             <VBox prefHeight="200.0" prefWidth="100.0" BorderPane.alignment="CENTER">
                <children>
-                  <Button fx:id="btacceuil1" styleClass="btacceuil" mnemonicParsing="false" onAction="#onClickJouer" text="Jouer" textFill="WHITE">
+                  <Button fx:id="btacceuil1" minHeight="50.0" minWidth="300.0" mnemonicParsing="false" onAction="#onClickJouer" styleClass="btacceuil" text="Jouer" textFill="WHITE">
                      <VBox.margin>
-                        <Insets left="30.0" />
-                     </VBox.margin></Button>
-                  <Button fx:id="btacceuil2" styleClass="btacceuil" mnemonicParsing="false" onAction="#onClickReprendre" text="reprendre">
+                        <Insets left="30.0" top="70.0" />
+                     </VBox.margin>
+                     <font>
+                        <Font size="24.0" />
+                     </font></Button>
+                  <Button fx:id="btacceuil2" minHeight="50.0" minWidth="300.0" mnemonicParsing="false" onAction="#onClickReprendre" styleClass="btacceuil" text="Reprendre" textFill="WHITE">
                      <VBox.margin>
-                        <Insets left="30.0" />
-                     </VBox.margin></Button>
-                  <Button fx:id="btacceuil3" styleClass="btacceuil" mnemonicParsing="false" onAction="#onClickCollection" text="Collection">
+                        <Insets left="30.0" top="30.0" />
+                     </VBox.margin>
+                     <font>
+                        <Font size="24.0" />
+                     </font></Button>
+                  <Button fx:id="btacceuil3" minHeight="50.0" minWidth="300.0" mnemonicParsing="false" onAction="#onClickCollection" styleClass="btacceuil" text="Collection" textFill="WHITE">
                      <VBox.margin>
-                        <Insets left="30.0" />
-                     </VBox.margin></Button>
-                  <Button fx:id="btacceuil4" styleClass="btacceuil" mnemonicParsing="false" onAction="#onClickRegle" text="Regles">
+                        <Insets left="30.0" top="30.0" />
+                     </VBox.margin>
+                     <font>
+                        <Font size="24.0" />
+                     </font></Button>
+                  <Button fx:id="btacceuil4" minHeight="50.0" minWidth="300.0" mnemonicParsing="false" onAction="#onClickRegle" styleClass="btacceuil" text="Regles" textFill="WHITE">
                      <VBox.margin>
-                        <Insets left="30.0" />
-                     </VBox.margin></Button>
-                  <Button fx:id="btacceuil5" styleClass="btacceuil" mnemonicParsing="false" onAction="#onClickParametre" text="Parametre">
+                        <Insets left="30.0" top="30.0" />
+                     </VBox.margin>
+                     <font>
+                        <Font size="24.0" />
+                     </font></Button>
+                  <Button fx:id="btacceuil5" minHeight="50.0" minWidth="300.0" mnemonicParsing="false" onAction="#onClickParametre" styleClass="btacceuil" text="Parametre" textFill="WHITE">
                      <VBox.margin>
-                        <Insets left="30.0" />
-                     </VBox.margin></Button>
+                        <Insets left="30.0" top="30.0" />
+                     </VBox.margin>
+                     <font>
+                        <Font size="24.0" />
+                     </font></Button>
                </children>
             </VBox>
          </left>

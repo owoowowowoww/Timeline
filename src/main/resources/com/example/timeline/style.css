@@ -1,6 +1,10 @@
 .btacceuil {
     -fx-background-image: url("image/imbut.png");
-    -fx-background-size: cover;
+    -fx-background-size: 110% 110%; /* Agrandit légèrement l’image */
     -fx-background-repeat: no-repeat;
     -fx-background-position: center;
+
+    -fx-background-insets: 10; /* Fait sortir l'image du bord */
+    -fx-padding: -10; /* Espace intérieur du bouton */
+    -fx-text-fill: white;
 }
