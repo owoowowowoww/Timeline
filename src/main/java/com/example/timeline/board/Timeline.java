@@ -1,8 +1,7 @@
 package com.example.timeline.board;
 
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.List;
+import java.util.*;
+
 import com.example.timeline.collection.*;
 
 public class Timeline {
@@ -12,6 +11,7 @@ public class Timeline {
     private List<Card> board;
     private int currentPlayerIndex;
     private boolean gameEnded;
+    private Map<Player, Integer> scores;
 
     public void Game(List<Player> players, List<Card> allCards, int cardsPerPlayer) {
         this.players = players;
@@ -19,6 +19,10 @@ public class Timeline {
         this.board = new ArrayList<>();
         this.currentPlayerIndex = 0;
         this.gameEnded = false;
+        scores = new HashMap<>();
+        for (Player player : players) {
+            scores.put(player, 0);
+        }
 
         Collections.shuffle(allCards);
         for (int i = 0; i < cardsPerPlayer; i++) {
@@ -48,26 +52,25 @@ public class Timeline {
         if (isCorrectPosition(chosenCard, position)) {
             board.add(position, chosenCard);
             hand.removeCard(chosenCard);
+
+            scores.put(currentPlayer, scores.get(currentPlayer) + 1);
+
             System.out.println(currentPlayer.getName() + " a correctement placé sa carte.");
         } else {
             System.out.println("Mauvaise position ! Pioche d'une carte.");
 
-            // Ajouter la carte dans la timeline à la bonne place
             insertCardInTimeline(chosenCard);
 
-            // Retirer la carte de la main du joueur
             hand.removeCard(chosenCard);
 
-            // Le joueur pioche une carte
             if (!drawPile.isEmpty()) {
                 hand.receiveCard(drawPile.drawCard());
             }
         }
 
-        // Vérifier la victoire
         if (hand.isEmpty()) {
             gameEnded = true;
-            System.out.println(currentPlayer.getName() + " a gagné !");
+            showFinalScores();
         } else {
             nextPlayer();
         }
@@ -77,9 +80,9 @@ public class Timeline {
         // Vérifie si la carte est bien placée dans la board
         int date = card.getDate();
         if (position == 0) {
-            return date <= board.get(0).getDate();
+            return date <= board.getFirst().getDate();
         } else if (position == board.size()) {
-            return date >= board.get(board.size() - 1).getDate();
+            return date >= board.getLast().getDate();
         } else {
             return date >= board.get(position - 1).getDate()
                     && date <= board.get(position).getDate();
@@ -92,6 +95,16 @@ public class Timeline {
             i++;
         }
         board.add(i, card);
+    }
+
+    private void showFinalScores() {
+        System.out.println("Scores finaux : ");
+
+        players.stream()
+                .sorted((a, b) -> scores.get(b) - scores.get(a))
+                .forEach(p -> {
+                    System.out.println(p.getName() + " : " + scores.get(p) + " points");
+                });
     }
 
     private void nextPlayer() {
