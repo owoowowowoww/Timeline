@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
@@ -18,22 +19,43 @@
             <ImageView fitHeight="115.0" fitWidth="239.0" pickOnBounds="true" preserveRatio="true" BorderPane.alignment="CENTER">
                <image>
                   <Image url="@image/titretimeline.png" />
-               </image></ImageView>
+               </image>
+               <BorderPane.margin>
+                  <Insets top="55.0" />
+               </BorderPane.margin></ImageView>
          </top>
          <right>
             <ImageView fitHeight="403.0" fitWidth="592.0" pickOnBounds="true" preserveRatio="true" BorderPane.alignment="CENTER">
                <image>
                   <Image url="@image/imcartevers.png" />
-               </image></ImageView>
+               </image>
+               <BorderPane.margin>
+                  <Insets right="20.0" />
+               </BorderPane.margin></ImageView>
          </right>
          <left>
             <VBox prefHeight="200.0" prefWidth="100.0" BorderPane.alignment="CENTER">
                <children>
-                  <Button mnemonicParsing="false" onAction="#onClickJouer" text="Jouer" textFill="WHITE" />
-                  <Button mnemonicParsing="false" onAction="#onClickReprendre" text="reprendre" />
-                  <Button mnemonicParsing="false" onAction="#onClickCollection" text="Collection" />
-                  <Button mnemonicParsing="false" onAction="#onClickRegle" text="Regles" />
-                  <Button mnemonicParsing="false" onAction="#onClickParametre" text="Parametre" />
+                  <Button fx:id="btacceuil1" styleClass="btacceuil" mnemonicParsing="false" onAction="#onClickJouer" text="Jouer" textFill="WHITE">
+                     <VBox.margin>
+                        <Insets left="30.0" />
+                     </VBox.margin></Button>
+                  <Button fx:id="btacceuil2" styleClass="btacceuil" mnemonicParsing="false" onAction="#onClickReprendre" text="reprendre">
+                     <VBox.margin>
+                        <Insets left="30.0" />
+                     </VBox.margin></Button>
+                  <Button fx:id="btacceuil3" styleClass="btacceuil" mnemonicParsing="false" onAction="#onClickCollection" text="Collection">
+                     <VBox.margin>
+                        <Insets left="30.0" />
+                     </VBox.margin></Button>
+                  <Button fx:id="btacceuil4" styleClass="btacceuil" mnemonicParsing="false" onAction="#onClickRegle" text="Regles">
+                     <VBox.margin>
+                        <Insets left="30.0" />
+                     </VBox.margin></Button>
+                  <Button fx:id="btacceuil5" styleClass="btacceuil" mnemonicParsing="false" onAction="#onClickParametre" text="Parametre">
+                     <VBox.margin>
+                        <Insets left="30.0" />
+                     </VBox.margin></Button>
                </children>
             </VBox>
          </left>
