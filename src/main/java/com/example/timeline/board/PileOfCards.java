@@ -7,7 +7,7 @@ import java.util.List;
 import java.util.Stack;
 
 public class PileOfCards {
-    private List<Card> pileOfCards;
+    private final List<Card> pileOfCards;
 
     public PileOfCards() {
         super();
