@@ -4,7 +4,7 @@ import java.util.LinkedList;
 import java.util.List;
 
 public class Collection {
-    private List<Card> collection;
+    private final List<Card> collection;
 
     public Collection() {
         super();
