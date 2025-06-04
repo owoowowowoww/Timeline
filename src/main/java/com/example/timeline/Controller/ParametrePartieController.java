@@ -47,6 +47,7 @@ public class ParametrePartieController {
         mainStage.setScene(jouerScene);
         JouerController controller = fxmlLoader.getController();
         controller.setStage(mainStage);
+        controller.initialization();
     }
 
     public int getTimeAnswer(){

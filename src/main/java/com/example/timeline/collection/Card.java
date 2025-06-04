@@ -1,20 +1,34 @@
 package com.example.timeline.collection;
 
+import com.example.timeline.pojo.CardPOJO;
+
 import java.util.Objects;
 
 public class Card {
     private String image;
     private String title;
     private int date;
-    private String description;
-	private String urlImage;
+	private int position;
+	private String description;
+
+	public Card(String title, int date, int position, String urlImage) {
+		super();
+		this.title = title;
+		this.date = date;
+		this.position = position;
+		this.image = urlImage;
+	}
+
+	public Card(CardPOJO cardP, int position) {
+		super();
+		this.title = cardP.name;
+		this.date = cardP.date;
+		this.position = position;
+		this.image = cardP.url;
+	}
 
 	public String getImage() {
 		return image;
-	}
-
-	public void setImage(String image) {
-		this.image = image;
 	}
 
 	public String getTitle() {
@@ -29,21 +43,11 @@ public class Card {
 		return date;
 	}
 
-	public void setDate(int date) {
-		this.date = date;
-	}
-
 	public String getDescription() {
 		return description;
 	}
 
-	public void setDescription(String description) {
-		this.description = description;
-	}
 
-	public String getUrlImage() {
-		return urlImage;
-	}
 
 	@Override
 	public boolean equals(Object o) {

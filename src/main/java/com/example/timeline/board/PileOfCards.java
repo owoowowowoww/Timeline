@@ -7,11 +7,13 @@ import java.util.List;
 import java.util.Stack;
 
 public class PileOfCards {
+    private Card selectedCard;
     private List<Card> pileOfCards;
 
     public PileOfCards() {
         super();
         pileOfCards = new ArrayList<>();
+        selectedCard = null;
     }
 
     public void receiveCard(Card newCard) {
@@ -37,4 +39,18 @@ public class PileOfCards {
     public List<Card> getPileOfCards (){
         return pileOfCards;
     }
+
+    public void addCard(Card card) {
+        pileOfCards.add(card);
+    }
+
+    public boolean hasMoreCards() {
+        return !pileOfCards.isEmpty();
+    }
+
+    public Card getSelectedCard() {
+        return selectedCard;
+    }
+
+
 }

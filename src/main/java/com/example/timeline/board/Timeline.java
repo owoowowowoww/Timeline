@@ -3,8 +3,13 @@ package com.example.timeline.board;
 import java.util.*;
 
 import com.example.timeline.collection.*;
+import com.example.timeline.collection.Collection;
 
 public class Timeline {
+
+    private static final int INITIAL_NB_CARDS = 4;
+    private Player player1;
+    private Collection deck;
 
     private List<Player> players;
     private PileOfCards drawPile;
@@ -121,5 +126,31 @@ public class Timeline {
 
     public List<Card> getTimeline() {
         return board;
+    }
+
+    public Timeline() {
+        super();
+        setupGame();
+    }
+
+    public PileOfCards getPlayerHand() {
+        return player1.getHand();
+    }
+
+    public Player getPlayer1() {
+        return player1;
+    }
+
+    public Collection getDeck() {
+        return deck;
+    }
+
+    private void setupGame() {
+        player1 = new Player("Joueur 1");
+        deck = new Collection();
+
+        for (int i = 0; i < INITIAL_NB_CARDS; i++) {
+            player1.addInHandCard(deck.drawCard());
+        }
     }
 }
