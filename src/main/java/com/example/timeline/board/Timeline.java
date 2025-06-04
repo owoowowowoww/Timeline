@@ -7,7 +7,7 @@ import com.example.timeline.collection.Collection;
 
 public class Timeline {
 
-    private static final int INITIAL_NB_CARDS = 4;
+    private static final int INITIAL_NB_CARDS = 6;
     private Player player1;
     private Collection deck;
 
