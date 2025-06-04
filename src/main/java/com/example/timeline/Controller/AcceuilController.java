@@ -33,6 +33,7 @@ public class AcceuilController {
         Scene ParametrePartieScene = new Scene(fxmlLoader.load(), 950, 635);
         mainStage.setTitle("ParametrePartie");
         mainStage.setScene(ParametrePartieScene);
+        ParametrePartieScene.getStylesheets().add(Main.class.getResource("style.css").toExternalForm());
         ParametrePartieController controller = fxmlLoader.getController();
         controller.setStage(mainStage);
     }
