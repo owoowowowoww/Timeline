@@ -55,7 +55,8 @@ public class Timeline {
         }
 
         if (isCorrectPosition(chosenCard, position)) {
-            board.add(position, chosenCard);
+            int safePosition = Math.min(position, board.size());
+            board.add(safePosition, chosenCard);
             hand.removeCard(chosenCard);
 
             scores.put(currentPlayer, Integer.valueOf(scores.get(currentPlayer) + 1));
@@ -88,9 +89,11 @@ public class Timeline {
             return date <= board.getFirst().getDate();
         } else if (position == board.size()) {
             return date >= board.getLast().getDate();
-        } else {
+        } else if (position < board.size()) {
             return date >= board.get(position - 1).getDate()
                     && date <= board.get(position).getDate();
+        } else {
+            return date >= board.getLast().getDate(); // position == board.size()
         }
     }
 
