@@ -1,6 +1,7 @@
 package com.example.timeline.controller;
 
 import com.example.timeline.collection.Card;
+import com.example.timeline.collection.Deck;
 import com.example.timeline.util.ImageManager;
 import com.example.timeline.view.CardView;
 import com.example.timeline.view.CardViewOnBoard;
@@ -34,7 +35,18 @@ public class CardOnHandController {
 	}
 
 	public void selectAction() {
-		mainController.setCardSelectedHand(controlledCard);
+		if (mainController != null) {
+			mainController.setCardSelectedHand(controlledCard);
+		} else if (mainControllerParam != null) {
+			for (Deck deck : Deck.getDecks()) {
+				if (deck.getCards().contains(controlledCard)) {
+					mainControllerParam.setSelectedDeck(deck);
+					break;
+				}
+			}
+		} else {
+			System.err.println("Aucun contrôleur principal n'est défini dans CardOnHandController.");
+		}
 	}
 
 	public void setView(CardView cardView) {

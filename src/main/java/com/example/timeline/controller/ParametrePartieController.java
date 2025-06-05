@@ -99,14 +99,7 @@ public class ParametrePartieController {
 
     @FXML
     public void initialize() {
-        for (Deck deck : Deck.getDecks()){
-            Label label = new Label();
-            label.setText(deck.getTitle());
-            label.setOnMouseClicked(event -> {
-                deckCliked(deck);
-            });
-            decks.getChildren().add(label);
-        }
+        displaydecks(); // affiche les decks visuellement
         scrollpane.addEventFilter(ScrollEvent.SCROLL, event -> {
             double deltaY = event.getDeltaY();
             double speed = 5;
@@ -143,4 +136,9 @@ public class ParametrePartieController {
             }
         }
     }
+
+    public void setSelectedDeck(Deck deck) {
+        deckCliked(deck);
+    }
+
 }

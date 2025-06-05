@@ -95,12 +95,12 @@
                         <Insets left="20.0" />
                      </VBox.margin>
                   </TextField>
-                  <Pane prefHeight="89.0" prefWidth="326.0" />
-                  <ScrollPane fx:id="scrollpane" hbarPolicy="NEVER" pannable="true" prefHeight="37.0" prefWidth="326.0" vbarPolicy="NEVER">
+                  <Pane prefHeight="34.0" prefWidth="326.0" />
+                  <ScrollPane fx:id="scrollpane" hbarPolicy="NEVER" pannable="true" prefHeight="207.0" prefWidth="326.0" vbarPolicy="NEVER">
                     <content>
                       <AnchorPane fx:id="anchorpane" minHeight="0.0" minWidth="0.0" prefHeight="43.0" prefWidth="325.0">
                            <children>
-                              <HBox fx:id="decks" layoutX="-3.0" layoutY="-5.0" prefHeight="42.0" prefWidth="328.0" />
+                              <HBox fx:id="decks" layoutX="-3.0" layoutY="-9.0" prefHeight="195.0" prefWidth="328.0" />
                            </children>
                         </AnchorPane>
                     </content>
