@@ -5,7 +5,7 @@ import java.util.*;
 import com.example.timeline.collection.*;
 import com.example.timeline.collection.Deck;
 
-public class Timeline {
+public class Game {
 
     private Deck deck;
 
@@ -16,7 +16,7 @@ public class Timeline {
     private boolean gameEnded;
     private Map<Player, Integer> scores;
 
-    public Timeline(List<Player> players, Deck deck, int cardsPerPlayer) {
+    public Game(List<Player> players, Deck deck, int cardsPerPlayer) {
         this.players = players;
         this.deck = deck;
         this.drawPile = new PileOfCards();

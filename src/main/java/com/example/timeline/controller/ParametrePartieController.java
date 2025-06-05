@@ -17,7 +17,7 @@ public class ParametrePartieController {
     public Stage mainStage;
 
     @FXML
-    private TextField timeAnswer;
+    private TextField timeAnwser;
 
     public void setStage(Stage stage) {
         this.mainStage = stage;
@@ -48,11 +48,12 @@ public class ParametrePartieController {
         jouerScene.getStylesheets().add(Main.class.getResource("style.css").toExternalForm());
         JouerController controller = fxmlLoader.getController();
         controller.setStage(mainStage);
+        controller.setSeconds(Integer.parseInt(timeAnwser.getText()));
         controller.initialization();
     }
 
     public int getTimeAnswer(){
-        return Integer.parseInt(timeAnswer.getText());
+        return Integer.parseInt(timeAnwser.getText());
     }
 
     @FXML

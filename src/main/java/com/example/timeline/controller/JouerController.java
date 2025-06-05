@@ -3,11 +3,14 @@ package com.example.timeline.controller;
 
 import com.example.timeline.board.PileOfCards;
 import com.example.timeline.board.Player;
-import com.example.timeline.board.Timeline;
+import com.example.timeline.board.Game;
 import com.example.timeline.collection.Card;
 import com.example.timeline.collection.Deck;
 import com.example.timeline.view.CardViewOnBoard;
 import com.example.timeline.view.CardViewOnHand;
+import javafx.animation.KeyFrame;
+import javafx.animation.PauseTransition;
+import javafx.animation.Timeline;
 import javafx.application.Platform;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
@@ -18,6 +21,7 @@ import javafx.scene.input.TransferMode;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.Region;
 import javafx.stage.Stage;
+import javafx.util.Duration;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -29,7 +33,9 @@ public class JouerController {
     public void setStage(Stage stage) {
         this.mainStage = stage;
     }
-
+    @FXML
+    private Label timeWatch;
+    
 	@FXML
 	private Label scoreLabel;
 
@@ -45,15 +51,26 @@ public class JouerController {
     @FXML
     private ScrollPane scrollPane;
 
-    private Timeline model;
+    private Game model;
+
+    private Timeline chrono;
 
     private Card selectedCard;
 
     private final Region dropPreview = new Region();
 
+    int seconds;
+    int initialSeconds = seconds;
+
 
     public JouerController() {
         super();
+    }
+
+    public void setSeconds(int seconds){
+        this.seconds = seconds;
+        initialSeconds = seconds;
+        timeWatch.setText(Integer.toString(seconds));
     }
 
     public void initialization() {
@@ -62,7 +79,7 @@ public class JouerController {
         List<Player> players = new ArrayList<>();
         Player player = new Player("Manu");
         players.add(player);
-        model = new Timeline(players, deck, 3);
+        model = new Game(players, deck, 3);
         initUIFromModel();
         dropPreview.setStyle("-fx-border-color: #892cb0; -fx-border-width: 3; -fx-background-color: rgba(255,255,255,0.2);");
         dropPreview.setMinSize(70, 100);
@@ -180,6 +197,7 @@ public class JouerController {
 
     @FXML
     public void initialize() {
+        startStopwatch();
         scrollPane.addEventFilter(ScrollEvent.SCROLL, event -> {
             double deltaY = event.getDeltaY();
             double speed = 5;
@@ -187,6 +205,43 @@ public class JouerController {
             scrollPane.setHvalue(scrollPane.getHvalue() - (deltaY * speed) / scrollPane.getWidth());
             event.consume();
         });
+    }
+
+    private void updateChrono() {
+        seconds--;
+
+        if (seconds == 0) {
+            timeWatch.setStyle("-fx-text-fill: white");
+            timeWatch.setText("STOP");
+            doFadeOutEnding();
+        } else if (seconds == 3) {
+            timeWatch.setStyle("-fx-text-fill: red");
+            timeWatch.setText(String.format("%02d", seconds));
+        } else if (seconds <= 3) {
+            timeWatch.setText(String.format("%02d", seconds));
+        } else {
+            timeWatch.setStyle("-fx-text-fill: white");
+            timeWatch.setText(String.format("%02d", seconds));
+        }
+    }
+
+    private void doFadeOutEnding() {
+        chrono.stop();
+        PauseTransition showMessageTime = new PauseTransition(Duration.seconds(3));
+        showMessageTime.setOnFinished(e -> {
+            seconds = initialSeconds;
+            System.out.println(seconds);
+            timeWatch.setStyle("-fx-text-fill: white");
+            timeWatch.setText(String.format("%02d", seconds));
+            startStopwatch();
+        });
+        showMessageTime.play();
+    }
+
+    private void startStopwatch() {
+        chrono = new Timeline(new KeyFrame(Duration.seconds(1), e -> updateChrono()));
+        chrono.setCycleCount(Timeline.INDEFINITE);
+        chrono.play();
     }
 
 }
