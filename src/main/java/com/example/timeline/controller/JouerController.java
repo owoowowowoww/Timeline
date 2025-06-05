@@ -1,15 +1,20 @@
 package com.example.timeline.controller;
 
-
+import com.example.timeline.Main;
 import com.example.timeline.board.PileOfCards;
 import com.example.timeline.board.Player;
-import com.example.timeline.board.Timeline;
+import com.example.timeline.board.Game;
 import com.example.timeline.collection.Card;
 import com.example.timeline.collection.Deck;
 import com.example.timeline.view.CardViewOnBoard;
 import com.example.timeline.view.CardViewOnHand;
+import javafx.animation.KeyFrame;
+import javafx.animation.PauseTransition;
+import javafx.animation.Timeline;
 import javafx.application.Platform;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Scene;
 import javafx.scene.control.Label;
 import javafx.scene.control.ScrollPane;
 import javafx.scene.input.Dragboard;
@@ -17,27 +22,33 @@ import javafx.scene.input.ScrollEvent;
 import javafx.scene.input.TransferMode;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.Region;
+import javafx.stage.Modality;
 import javafx.stage.Stage;
+import javafx.util.Duration;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
 public class JouerController {
 
     public Stage mainStage;
+    public Stage jouerStage;
 
     public void setStage(Stage stage) {
         this.mainStage = stage;
     }
 
-    @FXML
-    private Label messageLabel;
+    private Deck selectedDeck;
 
-	@FXML
-	private Label scoreLabel;
+    @FXML
+    private Label scoreLabel;
 
     @FXML
     private Label titreDeck;
+
+    @FXML
+    private Label timeWatch;
 
     @FXML
     private HBox playerHand;
@@ -48,11 +59,31 @@ public class JouerController {
     @FXML
     private ScrollPane scrollPane;
 
-    private Timeline model;
+    private Game model;
+
+    private Timeline chrono;
 
     private Card selectedCard;
 
     private final Region dropPreview = new Region();
+
+    private int nbJoueur = 1;
+
+    private int seconds = 10;
+
+    private int initialSeconds;
+
+    private String selectedCardDescription = "";
+
+    public void setSeconds(int seconds) {
+        this.seconds = seconds;
+        initialSeconds = seconds;
+        timeWatch.setText(Integer.toString(seconds));
+    }
+
+    public void setNbJoueur(int nbJoueur) {
+        this.nbJoueur = nbJoueur;
+    }
 
 
     public JouerController() {
@@ -61,11 +92,11 @@ public class JouerController {
 
     public void initialization() {
         initUI();
-        Deck deck = Deck.getDeck("Les langages de programmation");
+        Deck deck = selectedDeck != null ? selectedDeck : new Deck("Langages par défaut");
         List<Player> players = new ArrayList<>();
         Player player = new Player("Manu");
         players.add(player);
-        model = new Timeline(players, deck, 3);
+        model = new Game(players, deck, 3);
         initUIFromModel();
         dropPreview.setStyle("-fx-border-color: #892cb0; -fx-border-width: 3; -fx-background-color: rgba(255,255,255,0.2);");
         dropPreview.setMinSize(70, 100);
@@ -89,18 +120,18 @@ public class JouerController {
     private void refresh() {
         Platform.runLater(() -> {
             initUIFromModel();
-			updateScore();
+            updateScore();
         });
     }
 
-	private void updateScore() {
-		if (model != null && scoreLabel != null) {
-			int score = model.getScore();
-			scoreLabel.setText("Score : " + score);
-		}
-	}
+    private void updateScore() {
+        if (model != null && scoreLabel != null) {
+            int score = model.getScore();
+            scoreLabel.setText("Score : " + score);
+        }
+    }
 
-	private void displayPlayerHand() {
+    private void displayPlayerHand() {
         PileOfCards hand = model.getPlayerHand();
         for (Card aCard : hand.getPileOfCards()) {
             CardOnHandController controller = new CardOnHandController(aCard, this);
@@ -110,13 +141,14 @@ public class JouerController {
         }
     }
 
+
     private void displayBoard() {
         List<Card> boardCards = model.getTimeline();
-        board.getChildren().clear(); // important !
+        board.getChildren().clear();
 
         for (Card aCard : boardCards) {
-            CardOnHandController controller = new CardOnHandController(aCard, this);
-            CardViewOnBoard view = new CardViewOnBoard(controller);
+            CardOnBoardController controller = new CardOnBoardController(aCard, this);
+            CardViewOnBoard view = new CardViewOnBoard(controller, true);
             board.getChildren().add(view);
         }
     }
@@ -125,10 +157,33 @@ public class JouerController {
         initialization();
     }
 
-    public void setCardSelected(Card controlledCard) {
+    public void setCardSelectedHand(Card controlledCard) {
         selectedCard = controlledCard;
         playerHand.getChildren().clear();
         displayPlayerHand();
+    }
+
+    public void setCardSelectedBoard(Card controlledCard) {
+        selectedCard = controlledCard;
+        selectedCardDescription = selectedCard.getDescription();
+        openWindowsDescription();
+    }
+
+    private void openWindowsDescription() {
+        try {
+            Stage descriptionCardStage = new Stage();
+            FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource("DescriptionCard.fxml"));
+            Scene descriptionCardScene = new Scene(fxmlLoader.load());
+            DescriptionCardController controller = fxmlLoader.getController();
+            descriptionCardStage.setScene(descriptionCardScene);
+            descriptionCardStage.initModality(Modality.WINDOW_MODAL);
+            descriptionCardStage.initOwner(mainStage);
+            descriptionCardStage.show();
+            controller.mainStage = descriptionCardStage;
+            controller.setDescription(selectedCardDescription);
+        } catch (IOException e) {
+            System.err.println("Problem while loading the description card fxml");
+        }
     }
 
 
@@ -152,21 +207,14 @@ public class JouerController {
         board.setOnDragDropped(event -> {
             Dragboard db = event.getDragboard();
             boolean success = false;
-
             if (db.hasString() && selectedCard != null) {
                 int position = calculateDropPosition(event.getX());
-
-                if (model.playTurn(selectedCard, position)) {
-                    messageLabel.setText("Bonne réponse !");
-                    messageLabel.setStyle("-fx-text-fill: green;");
-                } else {
-                    messageLabel.setText("Mauvaise réponse !");
-                    messageLabel.setStyle("-fx-text-fill: red;");
-                }
-
+                model.playTurn(selectedCard, position);
                 selectedCard = null;
                 success = true;
                 refresh();
+                doFadeOutEnding();
+
             }
             board.getChildren().remove(dropPreview);
             event.setDropCompleted(success);
@@ -192,6 +240,7 @@ public class JouerController {
 
     @FXML
     public void initialize() {
+        startTimeWatch();
         scrollPane.addEventFilter(ScrollEvent.SCROLL, event -> {
             double deltaY = event.getDeltaY();
             double speed = 5;
@@ -199,6 +248,71 @@ public class JouerController {
             scrollPane.setHvalue(scrollPane.getHvalue() - (deltaY * speed) / scrollPane.getWidth());
             event.consume();
         });
+    }
+
+
+    //Gestion du timer
+
+    private void updateChrono() {
+        seconds--;
+
+        if (seconds == 0) {
+            timeWatch.setStyle("-fx-text-fill: white");
+            timeWatch.setText("STOP");
+            if (nbJoueur == 1) {
+                openWindowsWinner();
+                chrono.stop();
+            } else {
+                doFadeOutEnding();
+            }
+        } else if (seconds == 3) {
+            timeWatch.setStyle("-fx-text-fill: red");
+            timeWatch.setText(String.format("%02d", seconds));
+        } else if (seconds <= 3) {
+            timeWatch.setText(String.format("%02d", seconds));
+        } else {
+            timeWatch.setStyle("-fx-text-fill: white");
+            timeWatch.setText(String.format("%02d", seconds));
+        }
+    }
+
+    private void openWindowsWinner() {
+        try {
+            Stage winnerStage = new Stage();
+            FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource("winner.fxml"));
+            Scene winnerScene = new Scene(fxmlLoader.load());
+            WinnerController controller = fxmlLoader.getController();
+            winnerStage.setScene(winnerScene);
+            winnerStage.initModality(Modality.WINDOW_MODAL);
+            winnerStage.initOwner(mainStage);
+            winnerStage.show();
+            winnerScene.getStylesheets().add(Main.class.getResource("style.css").toString());
+            controller.mainStage = winnerStage;
+        } catch (IOException e) {
+            System.err.println("Problem while loading the card fxml");
+        }
+    }
+
+    private void doFadeOutEnding() {
+        chrono.stop();
+        PauseTransition showMessageTime = new PauseTransition(Duration.seconds(3));
+        showMessageTime.setOnFinished(e -> {
+            seconds = initialSeconds;
+            timeWatch.setStyle("-fx-text-fill: white");
+            timeWatch.setText(String.format("%02d", seconds));
+            startTimeWatch();
+        });
+        showMessageTime.play();
+    }
+
+    private void startTimeWatch() {
+        chrono = new javafx.animation.Timeline(new KeyFrame(Duration.seconds(1), e -> updateChrono()));
+        chrono.setCycleCount(javafx.animation.Timeline.INDEFINITE);
+        chrono.play();
+    }
+
+    public void setDeck(Deck deck) {
+        this.selectedDeck = deck;
     }
 
 }
