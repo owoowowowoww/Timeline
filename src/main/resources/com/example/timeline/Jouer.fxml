@@ -10,7 +10,8 @@
 <?import javafx.scene.text.Font?>
 
 <BorderPane fx:id="rootPane"
-            prefHeight="635.0" prefWidth="950.0"
+            prefHeight="635.0"
+            prefWidth="950.0"
             styleClass="jouer-background"
             xmlns="http://javafx.com/javafx/23.0.1"
             xmlns:fx="http://javafx.com/fxml/1"
@@ -21,12 +22,12 @@
             <menus>
                 <Menu mnemonicParsing="false" text="Partie">
                     <items>
-                        <MenuItem mnemonicParsing="false" text="Nouvelle partie 1J" onAction="#newGameAction"/>
+                        <MenuItem mnemonicParsing="false" onAction="#newGameAction" text="Nouvelle partie 1J"/>
                     </items>
                 </Menu>
                 <Menu mnemonicParsing="false" text="À propos">
                     <items>
-                        <MenuItem mnemonicParsing="false" text="About" />
+                        <MenuItem mnemonicParsing="false" text="About"/>
                     </items>
                 </Menu>
             </menus>
@@ -34,20 +35,19 @@
     </top>
 
     <center>
-        <VBox alignment="CENTER" spacing="20">
+        <VBox alignment="CENTER" spacing="20" style="-fx-background-color: transparent; -fx-padding: 0;">
             <children>
                 <Label fx:id="titreDeck"
                        text="Titre du deck"
+                       styleClass="titre-deck"
                        textFill="WHITE"
-                       style="-fx-font-size: 30px; -fx-font-weight: bold;">
-                    <font>
-                        <Font size="30.0"/>
-                    </font>
+                       style="-fx-font-size: 30px; -fx-font-weight: bold;  -fx-background-color: transparent;">
                 </Label>
                 <HBox fx:id="board"
                       alignment="CENTER"
                       prefHeight="200.0"
-                      prefWidth="900.0"/>
+                      prefWidth="900.0"
+                      style="-fx-background-color: transparent;"/>
             </children>
         </VBox>
     </center>
@@ -63,4 +63,5 @@
             </center>
         </BorderPane>
     </bottom>
+
 </BorderPane>
