@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.Menu?>
 <?import javafx.scene.control.MenuBar?>
@@ -12,7 +11,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane fx:id="rootPane" prefHeight="635.0" prefWidth="950.0" styleClass="jouer-background" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.timeline.controller.JouerController">
+<BorderPane fx:id="rootPane" prefHeight="635.0" prefWidth="950.0" styleClass="jouer-background" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.timeline.controller.JouerController">
     <top>
         <MenuBar BorderPane.alignment="CENTER">
             <menus>
@@ -58,14 +57,20 @@
                 <HBox fx:id="playerHand" alignment="CENTER" prefHeight="150.0" prefWidth="900.0" style="-fx-background-color: transparent;" />
             </center>
          <bottom>
-                <Label fx:id="titreDeck" alignment="CENTER" prefHeight="43.0" prefWidth="578.0" style="-fx-font-size: 30px; -fx-font-weight: bold;" text="Titre du deck" textAlignment="CENTER" textFill="WHITE" wrapText="true" BorderPane.alignment="CENTER">
-                    <font>
+            <AnchorPane prefHeight="45.0" prefWidth="950.0" BorderPane.alignment="CENTER">
+               <children>
+                  <Label fx:id="titreDeck" alignment="CENTER" contentDisplay="CENTER" layoutX="175.0" layoutY="4.0" prefHeight="45.0" prefWidth="600.0" text="Titre du deck" textAlignment="CENTER" textFill="WHITE">
+                     <font>
                         <Font size="30.0" />
-                    </font>
-               <BorderPane.margin>
-                  <Insets bottom="10.0" />
-               </BorderPane.margin>
-                </Label>
+                     </font>
+                  </Label>
+                  <Label fx:id="scoreLabel" layoutX="858.0" layoutY="7.0" text="Score : 0" textFill="WHITE">
+                     <font>
+                        <Font size="24.0" />
+                     </font>
+                  </Label>
+               </children>
+            </AnchorPane>
          </bottom>
         </BorderPane>
     </bottom>
