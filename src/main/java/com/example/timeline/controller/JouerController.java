@@ -1,6 +1,7 @@
 package com.example.timeline.controller;
 
 
+import com.example.timeline.Main;
 import com.example.timeline.board.PileOfCards;
 import com.example.timeline.board.Player;
 import com.example.timeline.board.Timeline;
@@ -8,11 +9,15 @@ import com.example.timeline.collection.Card;
 import com.example.timeline.collection.Collection;
 import com.example.timeline.view.CardViewOnHand;
 import javafx.application.Platform;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Scene;
 import javafx.scene.control.Label;
 import javafx.scene.layout.HBox;
 import javafx.stage.Stage;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
@@ -79,6 +84,8 @@ public class JouerController {
 			playerHand.getChildren().add(view);
 		}
 	}
+
+}
 
 	private void displayBoard() {
 		List<Card> board = model.getTimeline();
