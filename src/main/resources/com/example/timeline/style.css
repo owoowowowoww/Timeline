@@ -18,3 +18,23 @@
     -fx-padding: -10; /* Espace intérieur du bouton */
     -fx-text-fill: white;
 }
+
+.regle-textflow {
+    -fx-background-color: transparent;
+    -fx-border-color: transparent;
+    -fx-padding: 10;
+}
+
+.regle-section-title {
+    -fx-font-size: 14px;
+
+    -fx-fill: black;
+    -fx-font-weight: bold;
+}
+
+.regle-texte {
+    -fx-font-size: 14px;
+    -fx-fill: black;
+
+}
+

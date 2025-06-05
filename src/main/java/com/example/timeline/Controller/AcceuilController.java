@@ -54,6 +54,7 @@ public class AcceuilController {
         Scene reglesScene = new Scene(fxmlLoader.load(), 950, 635);
         mainStage.setTitle("Regles");
         mainStage.setScene(reglesScene);
+        reglesScene.getStylesheets().add(Main.class.getResource("style.css").toExternalForm());
         ReglesController controller = fxmlLoader.getController();
         controller.setStage(mainStage);
     }
