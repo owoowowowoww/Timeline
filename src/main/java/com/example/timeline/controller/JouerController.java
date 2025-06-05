@@ -84,16 +84,7 @@ public class JouerController {
 			playerHand.getChildren().add(view);
 		}
 	}
-	@FXML
-	void onClickRetour(ActionEvent event) throws IOException {
-		FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource("Acceuil.fxml"));
-		Scene acceuilScene = new Scene(fxmlLoader.load(), 950, 635);
-		mainStage.setTitle("Acceuil");
-		mainStage.setScene(acceuilScene);
-		acceuilScene.getStylesheets().add(Main.class.getResource("style.css").toExternalForm());
-		AcceuilController controller = fxmlLoader.getController();
-		controller.setStage(mainStage);
-	}
+
 }
 
 	private void displayBoard() {

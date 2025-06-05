@@ -18,10 +18,10 @@
    <top>
       <MenuBar BorderPane.alignment="CENTER">
         <menus>
-          <Menu mnemonicParsing="false" onAction="#newGameAction" text="Partie">
+          <Menu mnemonicParsing="false"  text="Partie">
             <items>
               <MenuItem mnemonicParsing="false" text="Nouvelle partie 1J" />
-                  <MenuItem mnemonicParsing="false" onAction="#onClickRetour" text="Acceuille" />
+                  <MenuItem mnemonicParsing="false" text="Acceuille" />
             </items>
           </Menu>
           <Menu mnemonicParsing="false" text="A propos">
