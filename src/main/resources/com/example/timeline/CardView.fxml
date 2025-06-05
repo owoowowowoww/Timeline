@@ -9,7 +9,7 @@
 <?import javafx.scene.layout.StackPane?>
 <?import javafx.scene.text.Font?>
 
-<StackPane alignment="CENTER" maxHeight="240.0" prefHeight="240.0" prefWidth="162.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1">
+<StackPane alignment="CENTER" maxHeight="240.0" prefHeight="240.0" prefWidth="162.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1">
 	<children>
       <Pane prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: transparent;" />
       <ImageView fitHeight="240.0" fitWidth="162.0" pickOnBounds="true" preserveRatio="true">
@@ -45,7 +45,7 @@
 				</Label>
 			</bottom>
 			<center>
-				<ImageView id="image" fitHeight="100" fitWidth="112" pickOnBounds="true" preserveRatio="true" BorderPane.alignment="CENTER">
+				<ImageView id="image" fitHeight="115.0" fitWidth="115.0" pickOnBounds="true" preserveRatio="true" BorderPane.alignment="CENTER">
 					<image>
 					</image>
 				</ImageView>
