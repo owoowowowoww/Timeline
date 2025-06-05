@@ -2,14 +2,20 @@ package com.example.timeline.controller;
 
 
 import com.example.timeline.board.PileOfCards;
+import com.example.timeline.board.Player;
 import com.example.timeline.board.Timeline;
 import com.example.timeline.collection.Card;
+import com.example.timeline.collection.Collection;
 import com.example.timeline.view.CardViewOnHand;
 import javafx.application.Platform;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 import javafx.scene.layout.HBox;
 import javafx.stage.Stage;
+
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
 
 public class JouerController {
 
@@ -38,7 +44,12 @@ public class JouerController {
 
 	public void initialization() {
 		initUI();
+		Collection deck = new Collection();
+		List<Player> players = new ArrayList<>();
+		Player player = new Player("Manu");
+		players.add(player);
 		model = new Timeline();
+		model.Game(players, deck, 3);
 		initUIFromModel();
 	}
 
@@ -51,6 +62,7 @@ public class JouerController {
 		titreDeck.setText(model.getDeck().getTitle());
 		playerHand.getChildren().clear();
 		displayPlayerHand();
+		displayBoard();
 	}
 
 	private void refresh() {
@@ -68,6 +80,22 @@ public class JouerController {
 			playerHand.getChildren().add(view);
 		}
 	}
+
+	private void displayBoard() {
+		List<Card> board = model.getTimeline();
+		if (board == null) {
+			System.err.println("ERREUR : le champ 'board' n’a pas été injecté ! Vérifie le fx:id dans le FXML.");
+			return;
+		}
+		System.out.println("Nb cartes sur la timeline : " + board.size());
+		for (Card aCard : board) {
+			CardOnHandController controller = new CardOnHandController(aCard, this);
+			CardViewOnHand view = new CardViewOnHand(controller, aCard.equals(selectedCard));
+
+			this.board.getChildren().add(view);
+		}
+	}
+
 	public void newGameAction() {
 		initialization();
 	}

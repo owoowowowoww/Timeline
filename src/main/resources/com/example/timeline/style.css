@@ -1,5 +1,8 @@
 .btacceuil {
     -fx-background-image: url("image/imbut.png");
+
+    -fx-opacity: .9;
+
     -fx-background-size: 110% 110%; /* Agrandit légèrement l’image */
     -fx-background-repeat: no-repeat;
     -fx-background-position: center;
@@ -8,6 +11,13 @@
     -fx-padding: -10; /* Espace intérieur du bouton */
     -fx-text-fill: white;
 }
+
+.btacceuil:hover {
+    -fx-opacity: 1;
+    -fx-font-size: 26px;
+
+}
+
 .btjoue {
     -fx-background-image: url("image/parametrage_partie/btverjoue.png");
     -fx-background-size: 110% 110%; /* Agrandit légèrement l’image */
@@ -18,3 +28,28 @@
     -fx-padding: -10; /* Espace intérieur du bouton */
     -fx-text-fill: white;
 }
+.btjoue:hover {
+    -fx-opacity: 1;
+    -fx-font-size: 28px;
+
+}
+
+.regle-textflow {
+    -fx-background-color: transparent;
+    -fx-border-color: transparent;
+    -fx-padding: 10;
+}
+
+.regle-section-title {
+    -fx-font-size: 14px;
+
+    -fx-fill: black;
+    -fx-font-weight: bold;
+}
+
+.regle-texte {
+    -fx-font-size: 14px;
+    -fx-fill: black;
+
+}
+
