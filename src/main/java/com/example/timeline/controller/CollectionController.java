@@ -50,5 +50,4 @@ public class CollectionController {
             vbox.getChildren().add(label);
         }
     }
-
 }

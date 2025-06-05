@@ -8,12 +8,18 @@ import com.example.timeline.view.CardViewOnBoard;
 public class CardOnHandController {
 
 	private JouerController mainController;
+	private ParametrePartieController mainControllerParam;
 	private CardView view;
 	private Card controlledCard;
 
 	public CardOnHandController(Card aCard, JouerController controllerMainScreen) {
 		this.controlledCard = aCard;
 		this.mainController = controllerMainScreen;
+	}
+
+	public CardOnHandController(Card aCard, ParametrePartieController controllerMainScreen) {
+		this.controlledCard = aCard;
+		this.mainControllerParam = controllerMainScreen;
 	}
 
 	public void initView() {

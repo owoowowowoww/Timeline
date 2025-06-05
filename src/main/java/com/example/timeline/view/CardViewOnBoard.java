@@ -14,20 +14,38 @@ import javafx.scene.layout.VBox;
 
 public class CardViewOnBoard extends VBox implements CardView {
 
-    private CardOnBoardController controller;
+    private CardOnBoardController boardController;
+    private CardOnHandController handController;
 
     private Label cardTitle;
     private ImageView cardImage;
     private Label cardDate;
 
+    public CardViewOnBoard(CardOnBoardController controller) {
+        this(controller, false);
+    }
+
+    // Pour hand
+    public CardViewOnBoard(CardOnHandController controller) {
+        this(controller, false);
+    }
+
     public CardViewOnBoard(CardOnBoardController controller, boolean cardIsSelected) {
-        super();
+        this.boardController = controller;
+        init(cardIsSelected);
+    }
+
+    public CardViewOnBoard(CardOnHandController controller, boolean cardIsSelected) {
+        this.handController = controller;
+        init(cardIsSelected);
+    }
+
+    private void init(boolean cardIsSelected) {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/example/timeline/CardView.fxml"));
         try {
-            this.controller = controller;
             Parent root = loader.load();
-            root.setScaleX(0.8);
-            root.setScaleY(0.8);
+            root.setScaleX(cardIsSelected ? 1.0 : 0.8);
+            root.setScaleY(cardIsSelected ? 1.0 : 0.8);
 
             this.setAlignment(Pos.CENTER);
             this.getChildren().add(root);
@@ -36,23 +54,22 @@ public class CardViewOnBoard extends VBox implements CardView {
             cardImage = (ImageView) root.lookup("#image");
             cardDate = (Label) root.lookup("#date");
 
-            if (cardIsSelected) {
-                root.setScaleX(1.);
-                root.setScaleY(1.);
+            if (boardController != null) {
+                boardController.setView(this);
+                boardController.initView();
+            } else if (handController != null) {
+                handController.setView(this);
+                handController.initView();
             }
-            // Initialise l'affichage
-            controller.setView(this);
-            controller.initView();
 
-            this.setOnMouseClicked(_ -> {
-                selection();
-            });
+            this.setOnMouseClicked(_ -> selection());
 
         } catch (IOException e) {
             System.err.println("Erreur lors du chargement de la carte (CardViewOnBoard)");
             e.printStackTrace();
         }
     }
+
 
     @Override
     public void setTitle(String text) {
@@ -69,6 +86,11 @@ public class CardViewOnBoard extends VBox implements CardView {
     }
 
     private void selection() {
-        controller.selectActionDescription();
+        if (boardController != null) {
+            boardController.selectActionDescription();
+        } else if (handController != null) {
+            handController.selectAction();
+        }
     }
+
 }

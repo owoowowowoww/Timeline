@@ -38,6 +38,8 @@ public class JouerController {
         this.mainStage = stage;
     }
 
+    private Deck selectedDeck;
+
     @FXML
     private Label scoreLabel;
 
@@ -87,7 +89,7 @@ public class JouerController {
 
     public void initialization() {
         initUI();
-        Deck deck = Deck.getDeck("Les langages de programmation");
+        Deck deck = selectedDeck != null ? selectedDeck : new Deck("Langages par défaut");
         List<Player> players = new ArrayList<>();
         Player player = new Player("Manu");
         players.add(player);
@@ -287,6 +289,10 @@ public class JouerController {
         chrono = new javafx.animation.Timeline(new KeyFrame(Duration.seconds(1), e -> updateChrono()));
         chrono.setCycleCount(javafx.animation.Timeline.INDEFINITE);
         chrono.play();
+    }
+
+    public void setDeck(Deck deck) {
+        this.selectedDeck = deck;
     }
 
 }
