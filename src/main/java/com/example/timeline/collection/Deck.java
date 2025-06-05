@@ -8,14 +8,16 @@ import com.fasterxml.jackson.databind.node.ObjectNode;
 import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Deque;
+import java.util.LinkedList;
 import java.util.List;
 
-public class Deck {
+public class Deck { // nouveau deck
 
     private static JsonNode jeux;
     private static ObjectMapper mapper = new ObjectMapper();
     private static List<Deck> decks = new ArrayList<Deck>();
-    private List<Card> cards;
+    private Deque<Card> cards;
     private String title;
 
     public static void load(String file){
@@ -57,18 +59,18 @@ public class Deck {
             JsonNode cartesNode = jeux.get(jeu).get("cartes");
 
             try {
-                cards = mapper.readValue(cartesNode.toString(), new TypeReference<List<Card>>() {});
+                List<Card> temp = mapper.readValue(cartesNode.toString(), new TypeReference<List<Card>>() {});
+                cards = new LinkedList<>(temp);
             } catch (Exception e) {
                 e.printStackTrace();
             }
         }
         else {
-            cards = new ArrayList<>();
+            cards = new LinkedList<>();
         }
-
     }
 
-    public List<Card> getCards(){
+    public Deque<Card> getCards(){
         return cards;
     }
 

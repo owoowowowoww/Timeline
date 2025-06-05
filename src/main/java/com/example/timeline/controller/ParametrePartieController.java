@@ -45,6 +45,7 @@ public class ParametrePartieController {
         Scene jouerScene = new Scene(fxmlLoader.load(), 950, 635);
         mainStage.setTitle("Jeux");
         mainStage.setScene(jouerScene);
+        jouerScene.getStylesheets().add(Main.class.getResource("style.css").toExternalForm());
         JouerController controller = fxmlLoader.getController();
         controller.setStage(mainStage);
         controller.initialization();
