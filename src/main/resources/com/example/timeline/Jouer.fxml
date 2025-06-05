@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.Menu?>
 <?import javafx.scene.control.MenuBar?>
@@ -9,25 +10,19 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane fx:id="rootPane"
-            prefHeight="635.0"
-            prefWidth="950.0"
-            styleClass="jouer-background"
-            xmlns="http://javafx.com/javafx/23.0.1"
-            xmlns:fx="http://javafx.com/fxml/1"
-            fx:controller="com.example.timeline.controller.JouerController">
+<BorderPane fx:id="rootPane" prefHeight="635.0" prefWidth="950.0" styleClass="jouer-background" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.timeline.controller.JouerController">
 
     <top>
         <MenuBar BorderPane.alignment="CENTER">
             <menus>
                 <Menu mnemonicParsing="false" text="Partie">
                     <items>
-                        <MenuItem mnemonicParsing="false" onAction="#newGameAction" text="Nouvelle partie 1J"/>
+                        <MenuItem mnemonicParsing="false" onAction="#newGameAction" text="Nouvelle partie 1J" />
                     </items>
                 </Menu>
                 <Menu mnemonicParsing="false" text="À propos">
                     <items>
-                        <MenuItem mnemonicParsing="false" text="About"/>
+                        <MenuItem mnemonicParsing="false" text="About" />
                     </items>
                 </Menu>
             </menus>
@@ -35,19 +30,9 @@
     </top>
 
     <center>
-        <VBox alignment="CENTER" spacing="20" style="-fx-background-color: transparent; -fx-padding: 0;">
+        <VBox alignment="CENTER" spacing="20">
             <children>
-                <Label fx:id="titreDeck"
-                       text="Titre du deck"
-                       styleClass="titre-deck"
-                       textFill="WHITE"
-                       style="-fx-font-size: 30px; -fx-font-weight: bold;  -fx-background-color: transparent;">
-                </Label>
-                <HBox fx:id="board"
-                      alignment="CENTER"
-                      prefHeight="200.0"
-                      prefWidth="900.0"
-                      style="-fx-background-color: transparent;"/>
+                <HBox fx:id="board" alignment="CENTER" prefHeight="200.0" prefWidth="723.0" />
             </children>
         </VBox>
     </center>
@@ -55,13 +40,18 @@
     <bottom>
         <BorderPane BorderPane.alignment="CENTER">
             <center>
-                <HBox fx:id="playerHand"
-                      alignment="CENTER"
-                      prefHeight="150.0"
-                      prefWidth="900.0"
-                      style="-fx-background-color: transparent;"/>
+                <HBox fx:id="playerHand" alignment="CENTER" prefHeight="150.0" prefWidth="900.0" style="-fx-background-color: transparent;" />
             </center>
+         <bottom>
+                <Label fx:id="titreDeck" alignment="CENTER" prefHeight="43.0" prefWidth="578.0" style="-fx-font-size: 30px; -fx-font-weight: bold;" text="Titre du deck" textAlignment="CENTER" textFill="WHITE" wrapText="true" BorderPane.alignment="CENTER">
+                    <font>
+                        <Font size="30.0" />
+                    </font>
+               <BorderPane.margin>
+                  <Insets right="10.0" />
+               </BorderPane.margin>
+                </Label>
+         </bottom>
         </BorderPane>
     </bottom>
-
 </BorderPane>
