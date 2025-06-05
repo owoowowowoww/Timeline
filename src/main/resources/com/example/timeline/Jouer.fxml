@@ -7,18 +7,18 @@
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
-<?import javafx.scene.text.Font?>
 
-<BorderPane prefHeight="500.0" prefWidth="900.0" style="-fx-background-color: #222f;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.timeline.controller.JouerController">
+<BorderPane fx:id="rootPane"
+            prefHeight="500.0" prefWidth="900.0"
+            styleClass="jouer-background"
+            xmlns="http://javafx.com/javafx/23.0.1"
+            xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="com.example.timeline.controller.JouerController">
    <center>
       <VBox alignment="CENTER">
          <children>
-            <Label fx:id="titreDeck" alignment="CENTER" contentDisplay="CENTER" text="Les femmes dans l'histoire" textAlignment="CENTER" textFill="#37ff00">
-               <font>
-                  <Font size="30.0" />
-               </font>
-            </Label>
             <HBox fx:id="board" prefHeight="198.0" prefWidth="900.0" />
+            <Label fx:id="titreDeck" text="TITRE" />
             </children>
       </VBox>
    </center>
