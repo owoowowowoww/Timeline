@@ -68,7 +68,6 @@ public class Timeline {
             insertCardInTimeline(chosenCard);
         }
 
-        // Le joueur pioche toujours une carte, si la pioche n'est pas vide
         if (!drawPile.isEmpty()) {
             hand.receiveCard(drawPile.drawCard());
         }
@@ -136,5 +135,9 @@ public class Timeline {
 
     public Deck getDeck() {
         return deck;
+    }
+
+    public int getScore() {
+        return scores.get(players.get(0));
     }
 }

@@ -58,7 +58,7 @@
                         <Font size="30.0" />
                      </font>
                   </Label>
-                  <Label layoutX="898.0" layoutY="18.0" text="0" textFill="WHITE">
+                  <Label fx:id="scoreLabel" layoutX="858.0" layoutY="7.0" text="Score : 0" textFill="WHITE">
                      <font>
                         <Font size="24.0" />
                      </font>
