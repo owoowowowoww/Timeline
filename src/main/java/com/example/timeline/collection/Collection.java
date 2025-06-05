@@ -4,12 +4,13 @@ import com.example.timeline.io.CardLoader;
 import com.example.timeline.io.FAKECardLoader;
 
 import java.util.Collections;
+import java.util.Deque;
 import java.util.LinkedList;
 import java.util.List;
 
 public class Collection {
     private String title;
-    private List<Card> collection;
+    private Deque<Card> collection;
 
     public Collection() {
         super();
@@ -20,9 +21,10 @@ public class Collection {
     private void setup() {
         CardLoader loader = new FAKECardLoader();
         loader.load();
-        collection = loader.getCards();
+        List<Card> cards = loader.getCards();
+        Collections.shuffle(cards);
+        collection.addAll(cards);
         title = loader.getTitle();
-        Collections.shuffle(collection);
     }
 
     public void addCard(Card card) {
@@ -34,7 +36,7 @@ public class Collection {
         collection.remove(card);
     }
 
-    public List<Card> getCollection() {
+    public Deque<Card> getCollection() {
         return collection;
     }
 
@@ -42,7 +44,7 @@ public class Collection {
         if (collection.isEmpty()) {
             return null;
         }
-        return collection.remove(0);
+        return collection.pollFirst();
     }
 
     public boolean hasMoreCards() {

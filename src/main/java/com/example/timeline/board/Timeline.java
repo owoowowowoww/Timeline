@@ -18,10 +18,10 @@ public class Timeline {
     private boolean gameEnded;
     private Map<Player, Integer> scores;
 
-    public void Game(List<Player> players, List<Card> allCards, int cardsPerPlayer) {
+    public void Game(List<Player> players, Collection deck, int cardsPerPlayer) {
         this.players = players;
         this.drawPile = new PileOfCards();
-        this.board = new ArrayList<>();
+        this.board = new LinkedList<>();
         this.currentPlayerIndex = 0;
         this.gameEnded = false;
         scores = new HashMap<>();
@@ -29,14 +29,7 @@ public class Timeline {
             scores.put(player, 0);
         }
 
-        Collections.shuffle(allCards);
-        for (int i = 0; i < cardsPerPlayer; i++) {
-            for (Player player : players) {
-                player.getHand().receiveCard(allCards.removeFirst());
-            }
-        }
-
-        for (Card card : allCards) {
+        for (Card card : deck.getCollection()) {
             drawPile.receiveCard(card);
         }
 

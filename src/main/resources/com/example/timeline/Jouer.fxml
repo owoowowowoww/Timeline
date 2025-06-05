@@ -18,7 +18,7 @@
                   <Font size="30.0" />
                </font>
             </Label>
-            <HBox prefHeight="198.0" prefWidth="900.0" />
+            <HBox fx:id="board" prefHeight="198.0" prefWidth="900.0" />
             </children>
       </VBox>
    </center>
