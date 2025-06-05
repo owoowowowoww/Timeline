@@ -7,9 +7,7 @@ import com.example.timeline.collection.Collection;
 
 public class Timeline {
 
-    private static final int INITIAL_NB_CARDS = 6;
-    private Player player1;
-    private Collection collection;
+    private Collection deck;
 
     private List<Player> players;
     private PileOfCards drawPile;
@@ -18,8 +16,9 @@ public class Timeline {
     private boolean gameEnded;
     private Map<Player, Integer> scores;
 
-    public void Game(List<Player> players, Collection deck, int cardsPerPlayer) {
+    public Timeline(List<Player> players, Collection deck, int cardsPerPlayer) {
         this.players = players;
+        this.deck = deck;
         this.drawPile = new PileOfCards();
         this.board = new LinkedList<>();
         this.currentPlayerIndex = 0;
@@ -31,6 +30,14 @@ public class Timeline {
 
         for (Card card : deck.getCollection()) {
             drawPile.receiveCard(card);
+        }
+
+        for (int i = 0; i < cardsPerPlayer; i++) {
+            for (Player player : players) {
+                if (!drawPile.isEmpty()) {
+                    player.getHand().receiveCard(drawPile.drawCard());
+                }
+            }
         }
 
         if (!drawPile.isEmpty()) {
@@ -121,29 +128,11 @@ public class Timeline {
         return board;
     }
 
-    public Timeline() {
-        super();
-        setupGame();
-    }
-
     public PileOfCards getPlayerHand() {
-        return player1.getHand();
-    }
-
-    public Player getPlayer1() {
-        return player1;
+        return players.getFirst().getHand();
     }
 
     public Collection getDeck() {
-        return collection;
-    }
-
-    private void setupGame() {
-        player1 = new Player("Joueur 1");
-        collection = new Collection();
-
-        for (int i = 0; i < INITIAL_NB_CARDS; i++) {
-            player1.addInHandCard(collection.drawCard());
-        }
+        return deck;
     }
 }

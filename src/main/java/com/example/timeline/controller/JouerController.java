@@ -48,8 +48,7 @@ public class JouerController {
 		List<Player> players = new ArrayList<>();
 		Player player = new Player("Manu");
 		players.add(player);
-		model = new Timeline();
-		model.Game(players, deck, 3);
+		model = new Timeline(players, deck, 3);
 		initUIFromModel();
 	}
 
