@@ -25,7 +25,7 @@ public class Timeline {
         this.gameEnded = false;
         scores = new HashMap<>();
         for (Player player : players) {
-            scores.put(player, 0);
+            scores.put(player, Integer.valueOf(0));
         }
 
         for (Card card : deck.getCollection()) {
@@ -58,7 +58,7 @@ public class Timeline {
             board.add(position, chosenCard);
             hand.removeCard(chosenCard);
 
-            scores.put(currentPlayer, scores.get(currentPlayer) + 1);
+            scores.put(currentPlayer, Integer.valueOf(scores.get(currentPlayer) + 1));
 
             System.out.println(currentPlayer.getName() + " a correctement placé sa carte.");
         } else {
