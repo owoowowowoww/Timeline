@@ -62,7 +62,8 @@ public class JouerController {
         model = new Timeline(players, deck, 3);
         initUIFromModel();
         dropPreview.setStyle("-fx-border-color: #892cb0; -fx-border-width: 3; -fx-background-color: rgba(255,255,255,0.2);");
-        dropPreview.setMinSize(80, 120);
+        dropPreview.setMinSize(70, 100);
+        dropPreview.setMaxSize(70, 200);
         setupBoardDropZone();
 
     }
