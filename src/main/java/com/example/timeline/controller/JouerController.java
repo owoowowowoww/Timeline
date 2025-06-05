@@ -6,6 +6,7 @@ import com.example.timeline.board.Player;
 import com.example.timeline.board.Timeline;
 import com.example.timeline.collection.Card;
 import com.example.timeline.collection.Deck;
+import com.example.timeline.view.CardViewOnBoard;
 import com.example.timeline.view.CardViewOnHand;
 import javafx.application.Platform;
 import javafx.fxml.FXML;
@@ -16,7 +17,6 @@ import javafx.scene.layout.HBox;
 import javafx.stage.Stage;
 
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.List;
 
 public class JouerController {
@@ -84,18 +84,13 @@ public class JouerController {
 	}
 
 	private void displayBoard() {
-		board.getChildren().clear();
-		List<Card> board = model.getTimeline();
-		if (board == null) {
-			System.err.println("ERREUR : le champ 'board' n’a pas été injecté ! Vérifie le fx:id dans le FXML.");
-			return;
-		}
-		System.out.println("Nb cartes sur la timeline : " + board.size());
-		for (Card aCard : board) {
-			CardOnHandController controller = new CardOnHandController(aCard, this);
-			CardViewOnHand view = new CardViewOnHand(controller, aCard.equals(selectedCard));
+		List<Card> boardCards = model.getTimeline();
+		board.getChildren().clear(); // important !
 
-			this.board.getChildren().add(view);
+		for (Card aCard : boardCards) {
+			CardOnHandController controller = new CardOnHandController(aCard, this);
+			CardViewOnBoard view = new CardViewOnBoard(controller);
+			board.getChildren().add(view);
 		}
 	}
 

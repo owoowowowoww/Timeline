@@ -16,7 +16,7 @@ import javafx.scene.input.TransferMode;
 import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
 
-public class CardViewOnHand extends VBox {
+public class CardViewOnHand extends VBox implements CardView {
 
     private CardOnHandController controller;
 
@@ -81,12 +81,14 @@ public class CardViewOnHand extends VBox {
         controller.selectAction();
     }
 
-    public void setTitle(String text) {
-        cardTitle.setText(text);
-    }
+	@Override
+	public void setTitle(String text) {
+		cardTitle.setText(text);
+	}
 
-    public void setCardImage(Image image) {
-        cardImage.setImage(image);
-    }
+	@Override
+	public void setCardImage(Image image) {
+		cardImage.setImage(image);
+	}
 
 }

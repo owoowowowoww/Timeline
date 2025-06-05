@@ -1,35 +1,36 @@
-	package com.example.timeline.controller;
+package com.example.timeline.controller;
 
+import com.example.timeline.collection.Card;
+import com.example.timeline.util.ImageManager;
+import com.example.timeline.view.CardView;
 
-	import com.example.timeline.collection.Card;
-	import com.example.timeline.util.ImageManager;
-	import com.example.timeline.view.CardViewOnHand;
-
-	public class CardOnHandController {
+public class CardOnHandController {
 
 	private JouerController mainController;
-	private CardViewOnHand view;
+	private CardView view;
 	private Card controlledCard;
-
 
 	public CardOnHandController(Card aCard, JouerController controllerMainScreen) {
 		this.controlledCard = aCard;
-		mainController = controllerMainScreen;
+		this.mainController = controllerMainScreen;
 	}
 
 	public void initView() {
-		view.setTitle(controlledCard.getTitle());
-		view.setCardImage(ImageManager.getInstance().getImage(controlledCard.getImage()));
+		if (view != null) {
+			view.setTitle(controlledCard.getTitle());
+			view.setCardImage(ImageManager.getInstance().getImage(controlledCard.getImage()));
+		}
 	}
 
 	public void selectAction() {
 		mainController.setCardSelected(controlledCard);
 	}
 
-	public void setView(CardViewOnHand cardViewOnHand) {
-		view = cardViewOnHand;
+	public void setView(CardView cardView) {
+		this.view = cardView;
 	}
-	
-	
-	
+
+	public Card getControlledCard() {
+		return controlledCard;
+	}
 }
