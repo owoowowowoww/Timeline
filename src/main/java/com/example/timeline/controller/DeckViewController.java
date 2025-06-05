@@ -3,6 +3,7 @@ package com.example.timeline.controller;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 import javafx.scene.image.ImageView;
+import javafx.scene.input.MouseEvent;
 
 public class DeckViewController {
 
@@ -26,5 +27,15 @@ public class DeckViewController {
 
     @FXML
     private Label titleDeck;
+
+    @FXML
+    void delete(MouseEvent event) {
+
+    }
+
+    @FXML
+    void edit(MouseEvent event) {
+
+    }
 
 }

@@ -91,6 +91,20 @@
                   <Font name="Roboto Bold" size="25.0" />
                </font>
             </Label>
+            <Pane layoutX="194.0" prefHeight="45.0" prefWidth="81.0" style="-fx-background-color: #ffffffa0; -fx-background-radius: 0 0 0 5;">
+               <children>
+                  <ImageView fitHeight="43.0" fitWidth="45.0" layoutX="40.0" onMouseClicked="#delete" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@image/poubelle.png" />
+                     </image>
+                  </ImageView>
+                  <ImageView fitHeight="50.0" fitWidth="50.0" layoutX="-3.0" layoutY="-1.0" onMouseClicked="#edit" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@image/edit.png" />
+                     </image>
+                  </ImageView>
+               </children>
+            </Pane>
          </children>
       </Pane>
    </children>
