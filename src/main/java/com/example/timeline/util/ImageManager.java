@@ -2,19 +2,33 @@ package com.example.timeline.util;
 
 import javafx.scene.image.Image;
 
+import java.util.HashMap;
+import java.util.Map;
+
 public class ImageManager {
 
+
+
+	private Map<String, Image> imageCache = new HashMap<>();
+
 	private static ImageManager instance;
-	
-	public ImageManager() {
+
+	private ImageManager() {
 	}
 
 	public Image getImage(String urlImage) {
-		// TODO: verifier si pas deja récupérée dans le cache
-		
+		// Vérifier si l'image est déjà dans le cache
+		if (imageCache.containsKey(urlImage)) {
+			System.out.println("Image found in cache: " + urlImage);
+			return imageCache.get(urlImage); // Retourne l'image depuis le cache
+		}
+
+		// Si l'image n'est pas dans le cache, on la charge depuis l'URL
 		System.out.println("Fetch image from URL " + urlImage);
 		Image newImage = new Image(urlImage);
-		// TODO conserver l'image en cache 
+
+		// Ajouter l'image au cache
+		imageCache.put(urlImage, newImage);
 		return newImage;
 	}
 
@@ -23,5 +37,6 @@ public class ImageManager {
 			instance = new ImageManager();
 		return instance;
 	}
+
 	
 }

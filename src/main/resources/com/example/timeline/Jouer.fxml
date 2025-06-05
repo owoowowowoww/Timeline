@@ -18,6 +18,7 @@
                   <Font size="30.0" />
                </font>
             </Label>
+            <HBox prefHeight="198.0" prefWidth="900.0" />
             </children>
       </VBox>
    </center>
@@ -40,7 +41,7 @@
    <bottom>
       <BorderPane BorderPane.alignment="CENTER">
          <center>
-            <HBox fx:id="playerHand" alignment="CENTER" prefHeight="400.0" style="-fx-background-color: #222f;">
+            <HBox fx:id="playerHand" alignment="CENTER" prefHeight="150.0" prefWidth="900.0" style="-fx-background-color: #222f;">
                <children>
                   </children>
             </HBox>
