@@ -104,3 +104,7 @@
     -fx-background-insets: 0;
     -fx-padding: 0;
 }
+
+.scroll-pane .viewport, .scroll-pane {
+    -fx-background-color: transparent;
+}

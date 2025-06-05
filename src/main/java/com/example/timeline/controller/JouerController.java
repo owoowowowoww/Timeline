@@ -11,7 +11,9 @@ import com.example.timeline.view.CardViewOnHand;
 import javafx.application.Platform;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
+import javafx.scene.control.ScrollPane;
 import javafx.scene.input.Dragboard;
+import javafx.scene.input.ScrollEvent;
 import javafx.scene.input.TransferMode;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.Region;
@@ -36,6 +38,9 @@ public class JouerController {
 
     @FXML
     private HBox board;
+
+    @FXML
+    private ScrollPane scrollPane;
 
     private Timeline model;
 
@@ -174,5 +179,15 @@ public class JouerController {
         return position;
     }
 
+    @FXML
+    public void initialize() {
+        scrollPane.addEventFilter(ScrollEvent.SCROLL, event -> {
+            double deltaY = event.getDeltaY();
+            double speed = 5;
+
+            scrollPane.setHvalue(scrollPane.getHvalue() - (deltaY * speed) / scrollPane.getWidth());
+            event.consume();
+        });
+    }
 
 }
