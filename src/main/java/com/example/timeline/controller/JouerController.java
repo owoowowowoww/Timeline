@@ -61,7 +61,7 @@ public class JouerController {
         players.add(player);
         model = new Timeline(players, deck, 3);
         initUIFromModel();
-        dropPreview.setStyle("-fx-border-color: #00ff00; -fx-border-width: 3; -fx-background-color: rgba(0,255,0,0.2);");
+        dropPreview.setStyle("-fx-border-color: #892cb0; -fx-border-width: 3; -fx-background-color: rgba(255,255,255,0.2);");
         dropPreview.setMinSize(80, 120);
         setupBoardDropZone();
 
@@ -121,13 +121,8 @@ public class JouerController {
         board.setOnDragOver(event -> {
             if (event.getGestureSource() != board && event.getDragboard().hasString()) {
                 event.acceptTransferModes(TransferMode.MOVE);
-
                 int position = calculateDropPosition(event.getX());
-
-                // Supprimer l’ancienne preview si elle existe
                 board.getChildren().remove(dropPreview);
-
-                // L’ajouter à la bonne position
                 if (position >= 0 && position <= board.getChildren().size()) {
                     board.getChildren().add(position, dropPreview);
                 }
@@ -142,7 +137,6 @@ public class JouerController {
         board.setOnDragDropped(event -> {
             Dragboard db = event.getDragboard();
             boolean success = false;
-
             if (db.hasString() && selectedCard != null) {
                 int position = calculateDropPosition(event.getX());
                 model.playTurn(selectedCard, position);
@@ -150,32 +144,25 @@ public class JouerController {
                 success = true;
                 refresh();
             }
-
             board.getChildren().remove(dropPreview);
             event.setDropCompleted(success);
             event.consume();
         });
     }
 
-
     private int calculateDropPosition(double mouseX) {
         int position = 0;
-
         for (int i = 0; i < board.getChildren().size(); i++) {
             var node = board.getChildren().get(i);
-
             if (node == dropPreview) continue;
-
             double nodeX = node.getLayoutX();
             double nodeWidth = node.getBoundsInParent().getWidth();
             double nodeCenter = node.localToParent(node.getBoundsInLocal()).getMinX() + nodeWidth / 2;
-
             if (mouseX < nodeCenter) {
                 return position;
             }
             position++;
         }
-
         return position;
     }
 
