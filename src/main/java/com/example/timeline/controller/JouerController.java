@@ -255,7 +255,7 @@ public class JouerController {
             winnerStage.initModality(Modality.WINDOW_MODAL);
             winnerStage.initOwner(mainStage);
             winnerStage.show();
-            winnerScene.getStylesheets().add(Main.class.getResource("styleAcceuil.css").toString());
+            winnerScene.getStylesheets().add(Main.class.getResource("style.css").toString());
             controller.mainStage = winnerStage;
         } catch (IOException e) {
             System.err.println("Problem while loading the card fxml");
