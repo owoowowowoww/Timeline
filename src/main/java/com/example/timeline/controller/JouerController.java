@@ -58,7 +58,7 @@ public class JouerController {
 
     public void initialization() {
         initUI();
-        Deck deck = new Deck("Les langages de programmation");
+        Deck deck = Deck.getDeck("Les langages de programmation");
         List<Player> players = new ArrayList<>();
         Player player = new Player("Manu");
         players.add(player);

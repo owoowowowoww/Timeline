@@ -7,10 +7,7 @@ import com.fasterxml.jackson.databind.node.ObjectNode;
 
 import java.io.File;
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.Deque;
-import java.util.LinkedList;
-import java.util.List;
+import java.util.*;
 
 public class Deck { // nouveau deck
 
@@ -23,6 +20,14 @@ public class Deck { // nouveau deck
     public static void load(String file){
         try {
             jeux = mapper.readTree(new File(file)).get("jeux");
+
+            Iterator<String> fieldNames = jeux.fieldNames();
+            while (fieldNames.hasNext()) {
+                String key = fieldNames.next();
+                System.out.println(key);
+                new Deck(key);
+            }
+
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
@@ -33,6 +38,7 @@ public class Deck { // nouveau deck
             File f = new File(file);
             JsonNode jsonNode = mapper.readTree(f);
             ObjectNode jeuxObjectNode = (ObjectNode) jsonNode.get("jeux");
+
 
             for (Deck j : decks) {
                 ObjectNode objectNode = (ObjectNode) jeuxObjectNode.get(j.title);
@@ -50,13 +56,12 @@ public class Deck { // nouveau deck
         }
     }
 
-    public Deck(String jeu){
-        if (jeux == null) return;
+    public Deck(String title){
+        this.title = title;
         decks.add(this);
-        title = jeu;
 
-        if (jeux.get(jeu) != null) {
-            JsonNode cartesNode = jeux.get(jeu).get("cartes");
+        if (jeux.get(title) != null) {
+            JsonNode cartesNode = jeux.get(title).get("cartes");
 
             try {
                 List<Card> temp = mapper.readValue(cartesNode.toString(), new TypeReference<List<Card>>() {});
@@ -68,6 +73,19 @@ public class Deck { // nouveau deck
         else {
             cards = new LinkedList<>();
         }
+    }
+
+    public static Deck getDeck(String title) {
+        for (Deck deck : decks) {
+            if (deck.getTitle().equals(title)) {
+                return deck;
+            }
+        }
+        return null;
+    }
+
+    public static List<Deck> getDecks() {
+        return decks;
     }
 
     public Deque<Card> getCards(){
