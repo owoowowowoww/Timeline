@@ -61,7 +61,7 @@ public class JouerController {
 	}
 
 	private void initUIFromModel() {
-		//titreDeck.setText(model.getDeck().getTitle());
+		titreDeck.setText(model.getDeck().getTitle());
 		playerHand.getChildren().clear();
 		displayPlayerHand();
 		displayBoard();
