@@ -46,7 +46,7 @@ public class Timeline {
     }
 
     public void playTurn(Card chosenCard, int position) {
-        Player currentPlayer = players.get(currentPlayerIndex);
+        Player currentPlayer = players.get(0); // Un seul joueur
         PileOfCards hand = currentPlayer.getHand();
 
         if (!hand.contains(chosenCard)) {
@@ -54,33 +54,32 @@ public class Timeline {
             return;
         }
 
-        if (isCorrectPosition(chosenCard, position)) {
-            int safePosition = Math.min(position, board.size());
-            board.add(safePosition, chosenCard);
-            hand.removeCard(chosenCard);
+        boolean isCorrect = isCorrectPosition(chosenCard, position);
 
-            scores.put(currentPlayer, Integer.valueOf(scores.get(currentPlayer) + 1));
+        // Supprimer la carte de la main
+        hand.removeCard(chosenCard);
 
+        if (isCorrect) {
+            board.add(Math.min(position, board.size()), chosenCard);
+            scores.put(currentPlayer, scores.get(currentPlayer) + 1);
             System.out.println(currentPlayer.getName() + " a correctement placé sa carte.");
         } else {
-            System.out.println("Mauvaise position ! Pioche d'une carte.");
-
+            System.out.println("Mauvaise position !");
             insertCardInTimeline(chosenCard);
-
-            hand.removeCard(chosenCard);
-
-            if (!drawPile.isEmpty()) {
-                hand.receiveCard(drawPile.drawCard());
-            }
         }
 
-        if (hand.isEmpty()) {
+        // Le joueur pioche toujours une carte, si la pioche n'est pas vide
+        if (!drawPile.isEmpty()) {
+            hand.receiveCard(drawPile.drawCard());
+        }
+
+        // Fin du jeu : si la pioche ET la main sont vides
+        if (drawPile.isEmpty() && hand.isEmpty()) {
             gameEnded = true;
             showFinalScores();
-        } else {
-            nextPlayer();
         }
     }
+
 
     private boolean isCorrectPosition(Card card, int position) {
         // Vérifie si la carte est bien placée dans la board
