@@ -33,6 +33,7 @@ import java.util.List;
 public class JouerController {
 
     public Stage mainStage;
+    public Stage jouerStage;
 
     public void setStage(Stage stage) {
         this.mainStage = stage;
