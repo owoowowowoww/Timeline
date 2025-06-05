@@ -30,6 +30,9 @@ public class JouerController {
         this.mainStage = stage;
     }
 
+	@FXML
+	private Label scoreLabel;
+
     @FXML
     private Label titreDeck;
 
@@ -83,10 +86,18 @@ public class JouerController {
     private void refresh() {
         Platform.runLater(() -> {
             initUIFromModel();
+			updateScore();
         });
     }
 
-    private void displayPlayerHand() {
+	private void updateScore() {
+		if (model != null && scoreLabel != null) {
+			int score = model.getScore();
+			scoreLabel.setText("Score : " + score);
+		}
+	}
+
+	private void displayPlayerHand() {
         PileOfCards hand = model.getPlayerHand();
         for (Card aCard : hand.getPileOfCards()) {
             CardOnHandController controller = new CardOnHandController(aCard, this);
