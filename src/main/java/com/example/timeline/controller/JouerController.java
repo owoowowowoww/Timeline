@@ -1,7 +1,6 @@
 package com.example.timeline.controller;
 
 
-import com.example.timeline.Main;
 import com.example.timeline.board.PileOfCards;
 import com.example.timeline.board.Player;
 import com.example.timeline.board.Timeline;
@@ -9,17 +8,13 @@ import com.example.timeline.collection.Card;
 import com.example.timeline.collection.Collection;
 import com.example.timeline.view.CardViewOnHand;
 import javafx.application.Platform;
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Scene;
 import javafx.scene.control.Label;
 import javafx.scene.input.Dragboard;
 import javafx.scene.input.TransferMode;
 import javafx.scene.layout.HBox;
 import javafx.stage.Stage;
 
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
@@ -66,7 +61,7 @@ public class JouerController {
 	}
 
 	private void initUIFromModel() {
-		titreDeck.setText(model.getDeck().getTitle());
+		//titreDeck.setText(model.getDeck().getTitle());
 		playerHand.getChildren().clear();
 		displayPlayerHand();
 		displayBoard();
@@ -88,9 +83,8 @@ public class JouerController {
 		}
 	}
 
-}
-
 	private void displayBoard() {
+		board.getChildren().clear();
 		List<Card> board = model.getTimeline();
 		if (board == null) {
 			System.err.println("ERREUR : le champ 'board' n’a pas été injecté ! Vérifie le fx:id dans le FXML.");
@@ -111,9 +105,10 @@ public class JouerController {
 
 	public void setCardSelected(Card controlledCard) {
 		selectedCard = controlledCard;
-
-		refresh();
+		playerHand.getChildren().clear();
+		displayPlayerHand();
 	}
+
 
 	private void setupBoardDropZone() {
 		board.setOnDragOver(event -> {
