@@ -12,25 +12,9 @@
 <?import javafx.scene.text.Font?>
 
 <BorderPane fx:id="rootPane" prefHeight="635.0" prefWidth="950.0" styleClass="jouer-background" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.timeline.controller.JouerController">
-    <top>
-        <MenuBar BorderPane.alignment="CENTER">
-            <menus>
-                <Menu mnemonicParsing="false" text="Partie">
-                    <items>
-                        <MenuItem mnemonicParsing="false" onAction="#newGameAction" text="Nouvelle partie 1J" />
-                    </items>
-                </Menu>
-                <Menu mnemonicParsing="false" text="À propos">
-                    <items>
-                        <MenuItem mnemonicParsing="false" text="About" />
-                    </items>
-                </Menu>
-            </menus>
-        </MenuBar>
-    </top>
 
     <center>
-        <VBox alignment="CENTER" spacing="20">
+        <VBox alignment="CENTER" prefHeight="346.0" prefWidth="950.0" spacing="20">
             <children>
             <ScrollPane fx:id="scrollPane" fitToHeight="true" hbarPolicy="NEVER" pannable="true" vbarPolicy="NEVER">
               <content>
@@ -68,4 +52,33 @@
          </bottom>
         </BorderPane>
     </bottom>
+   <top>
+      <VBox prefHeight="62.0" prefWidth="950.0" BorderPane.alignment="CENTER">
+         <children>
+              <MenuBar>
+                  <menus>
+                      <Menu mnemonicParsing="false" text="Partie">
+                          <items>
+                              <MenuItem mnemonicParsing="false" onAction="#newGameAction" text="Nouvelle partie 1J" />
+                          </items>
+                      </Menu>
+                      <Menu mnemonicParsing="false" text="À propos">
+                          <items>
+                              <MenuItem mnemonicParsing="false" text="About" />
+                          </items>
+                      </Menu>
+                  </menus>
+              </MenuBar>
+            <AnchorPane prefHeight="39.0" prefWidth="950.0">
+               <children>
+                  <Label fx:id="timeWatch" alignment="CENTER" contentDisplay="CENTER" layoutX="880.0" text="0" textAlignment="CENTER" textFill="WHITE">
+                     <font>
+                        <Font size="30.0" />
+                     </font>
+                  </Label>
+               </children>
+            </AnchorPane>
+         </children>
+      </VBox>
+   </top>
 </BorderPane>
