@@ -52,4 +52,10 @@
     -fx-fill: black;
 
 }
+.jouer-background {
+    -fx-background-image: url("image/implato.png");
+    -fx-background-size: cover ;/* adapte à la taille du BorderPane */
+    -fx-background-repeat: no-repeat;
+    -fx-background-position: center;
+}
 
