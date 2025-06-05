@@ -25,6 +25,9 @@ public class JouerController {
 	@FXML
 	private HBox playerHand;
 
+	@FXML
+	private HBox board;
+
 	private Timeline model;
 
 	private Card selectedCard;
@@ -71,6 +74,7 @@ public class JouerController {
 
 	public void setCardSelected(Card controlledCard) {
 		selectedCard = controlledCard;
+
 		refresh();
 	}
 

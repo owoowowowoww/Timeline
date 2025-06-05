@@ -24,7 +24,7 @@ public class ParametrePartieController {
     }
 
     @FXML
-    void onClickNbJoueur(ActionEvent event) {
+    void onClickSetNbJoueur(ActionEvent event) {
         Button sourceButton = (Button)event.getSource();
         String val = sourceButton.getText();
         if(val.equals("1 joueur")){
