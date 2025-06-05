@@ -2,18 +2,24 @@
 
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.StackPane?>
 <?import javafx.scene.text.Font?>
 
-<StackPane alignment="CENTER" maxHeight="240.0" prefHeight="240.0" prefWidth="162.0" style="-fx-background-color: black;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1">
+<StackPane alignment="CENTER" maxHeight="240.0" prefHeight="240.0" prefWidth="162.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1">
 	<children>
-      <Pane prefHeight="200.0" prefWidth="200.0" />
+      <Pane prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: transparent;" />
+      <ImageView fitHeight="240.0" fitWidth="162.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@image/imcarterecto.png" />
+         </image>
+      </ImageView>
 		<BorderPane prefHeight="240.0" prefWidth="162.0">
 			<top>
-				<Label id="title" alignment="CENTER" contentDisplay="CENTER" prefHeight="20.0" prefWidth="140.0" style="-fx-background-color: #000a;" text="Ada Lovelace" textFill="WHITE" BorderPane.alignment="CENTER">
+				<Label id="title" alignment="CENTER" contentDisplay="CENTER" prefHeight="20.0" prefWidth="140.0" style="-fx-background-color: transparent;" text="Ada Lovelace" textFill="WHITE" BorderPane.alignment="CENTER">
 					<padding>
 						<Insets top="0.0" />
 					</padding>
@@ -21,7 +27,7 @@
 						<Font size="18.0" />
 					</font>
                <BorderPane.margin>
-                  <Insets top="30.0" />
+                  <Insets top="5.0" />
                </BorderPane.margin>
 				</Label>
 			</top>
@@ -34,7 +40,7 @@
 						<Insets bottom="0.0" />
 					</padding>
                <BorderPane.margin>
-                  <Insets bottom="25.0" />
+                  <Insets bottom="3.0" />
                </BorderPane.margin>
 				</Label>
 			</bottom>

@@ -19,14 +19,24 @@
             <Image url="@image/parametrage_partie/ppbg.png" />
          </image>
       </ImageView>
-      <ImageView fitHeight="69.0" fitWidth="55.0" layoutX="435.0" layoutY="116.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="69.0" fitWidth="50.0" layoutX="435.0" layoutY="174.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@image/parametrage_partie/tardisnbjoueurim.png" />
          </image>
       </ImageView>
-      <ImageView fitHeight="69.0" fitWidth="139.0" layoutX="547.0" layoutY="117.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="69.0" fitWidth="148.0" layoutX="565.0" layoutY="170.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@image/parametrage_partie/two_tardisimjouer.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="63.0" fitWidth="415.0" layoutY="263.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@image/imbut.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="79.0" fitWidth="346.0" layoutY="378.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@image/imbut.png" />
          </image>
       </ImageView>
       <BorderPane prefHeight="635.0" prefWidth="950.0">
@@ -43,7 +53,7 @@
          <bottom>
             <HBox prefHeight="100.0" prefWidth="200.0" BorderPane.alignment="CENTER">
                <children>
-                  <Button fx:id="btr" mnemonicParsing="false" onAction="#onClickRetour" prefHeight="25.0" prefWidth="77.0" styleClass="btacceuil" text="Retour" />
+                  <Button fx:id="btr" mnemonicParsing="false" onAction="#onClickRetour" prefHeight="120.0" prefWidth="135.0" styleClass="btacceuil" text="Retour" />
                   <Button fx:id="btj" mnemonicParsing="false" onAction="#onClickJouer" prefHeight="142.0" prefWidth="275.0" styleClass="btjoue" text="Jouer" textFill="WHITE">
                      <HBox.margin>
                         <Insets left="580.0" />
@@ -57,19 +67,19 @@
          <center>
             <VBox prefHeight="432.0" prefWidth="440.0" BorderPane.alignment="CENTER">
                <children>
-                  <HBox prefHeight="151.0" prefWidth="315.0">
+                  <HBox prefHeight="236.0" prefWidth="326.0">
                      <children>
-                        <Button fx:id="btj1" mnemonicParsing="false" onAction="#onClickSetNbJoueur" prefHeight="51.0" prefWidth="129.0" styleClass="btacceuil" text="1 Joueur" textFill="WHITE">
+                        <Button fx:id="btj1" mnemonicParsing="false" onAction="#onClickNbJoueur" prefHeight="90.0" prefWidth="150.0" styleClass="btacceuil" text="1 Joueur" textFill="WHITE">
                            <HBox.margin>
-                              <Insets left="30.0" top="100.0" />
+                              <Insets left="20.0" top="150.0" />
                            </HBox.margin>
                            <font>
                               <Font size="24.0" />
                            </font>
                         </Button>
-                        <Button fx:id="btj2" mnemonicParsing="false" onAction="#onClickSetNbJoueur" prefHeight="51.0" prefWidth="129.0" styleClass="btacceuil" text="2 Jouer" textFill="WHITE">
+                        <Button fx:id="btj2" mnemonicParsing="false" onAction="#onClickNbJoueur" prefHeight="90.0" prefWidth="150.0" styleClass="btacceuil" text="2 Jouer" textFill="WHITE">
                            <HBox.margin>
-                              <Insets left="30.0" top="100.0" />
+                              <Insets left="30.0" top="150.0" />
                            </HBox.margin>
                            <font>
                               <Font size="24.0" />
@@ -77,9 +87,9 @@
                         </Button>
                      </children>
                   </HBox>
-                  <TextField fx:id="timeAnwser" prefHeight="25.0" prefWidth="411.0">
+                  <TextField fx:id="timeAnwser" prefHeight="25.0" prefWidth="213.0" style="-fx-background-color: purple;">
                      <VBox.margin>
-                        <Insets left="30.0" top="100.0" />
+                        <Insets left="20.0" top="60.0" />
                      </VBox.margin>
                   </TextField>
                </children>
@@ -93,7 +103,7 @@
                         <Font size="24.0" />
                      </font>
                      <VBox.margin>
-                        <Insets left="20.0" top="70.0" />
+                        <Insets left="20.0" top="170.0" />
                      </VBox.margin>
                   </Label>
                   <Label text="Temps de pose d'une carte" textFill="WHITE">
@@ -101,7 +111,7 @@
                         <Font size="24.0" />
                      </font>
                      <VBox.margin>
-                        <Insets left="20.0" top="115.0" />
+                        <Insets left="20.0" top="85.0" />
                      </VBox.margin>
                   </Label>
                </children>
@@ -115,7 +125,7 @@
                         <Font size="24.0" />
                      </font>
                      <VBox.margin>
-                        <Insets left="15.0" top="220.0" />
+                        <Insets left="15.0" top="295.0" />
                      </VBox.margin>
                   </Label>
                </children>
