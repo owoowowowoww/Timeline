@@ -32,7 +32,7 @@
 				</Label>
 			</top>
 			<bottom>
-				<Label id="date" alignment="CENTER" contentDisplay="CENTER" prefHeight="30.0" prefWidth="140.0" text="" textAlignment="CENTER" textFill="LIME" BorderPane.alignment="CENTER">
+				<Label id="date" alignment="CENTER" contentDisplay="CENTER" prefHeight="30.0" prefWidth="140.0" text="" textAlignment="CENTER" textFill="WHITE" BorderPane.alignment="CENTER">
 					<font>
 						<Font name="System Bold Italic" size="18.0" />
 					</font>

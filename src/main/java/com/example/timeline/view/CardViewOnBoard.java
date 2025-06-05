@@ -15,6 +15,7 @@ public class CardViewOnBoard extends VBox implements CardView {
 
     private Label cardTitle;
     private ImageView cardImage;
+    private Label cardDate;
 
     public CardViewOnBoard(CardOnHandController controller) {
         super();
@@ -29,6 +30,7 @@ public class CardViewOnBoard extends VBox implements CardView {
 
             cardTitle = (Label) root.lookup("#title");
             cardImage = (ImageView) root.lookup("#image");
+            cardDate = (Label) root.lookup("#date");
 
             // Initialise l'affichage
             controller.setView(this);
@@ -48,5 +50,9 @@ public class CardViewOnBoard extends VBox implements CardView {
     @Override
     public void setCardImage(Image image) {
         cardImage.setImage(image);
+    }
+
+    public void setCardDate(int date) {
+        cardDate.setText("Date : " + date);
     }
 }
