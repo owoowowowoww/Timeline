@@ -10,7 +10,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Deck {
+public class Deck { // nouveau deck
 
     private static JsonNode jeux;
     private static ObjectMapper mapper = new ObjectMapper();
