@@ -3,11 +3,11 @@ package com.example.timeline.board;
 import java.util.*;
 
 import com.example.timeline.collection.*;
-import com.example.timeline.collection.Collection;
+import com.example.timeline.collection.Deck;
 
 public class Timeline {
 
-    private Collection deck;
+    private Deck deck;
 
     private List<Player> players;
     private PileOfCards drawPile;
@@ -16,7 +16,7 @@ public class Timeline {
     private boolean gameEnded;
     private Map<Player, Integer> scores;
 
-    public Timeline(List<Player> players, Collection deck, int cardsPerPlayer) {
+    public Timeline(List<Player> players, Deck deck, int cardsPerPlayer) {
         this.players = players;
         this.deck = deck;
         this.drawPile = new PileOfCards();
@@ -28,7 +28,7 @@ public class Timeline {
             scores.put(player, Integer.valueOf(0));
         }
 
-        for (Card card : deck.getCollection()) {
+        for (Card card : deck.getCards()) {
             drawPile.receiveCard(card);
         }
 
@@ -132,7 +132,7 @@ public class Timeline {
         return players.getFirst().getHand();
     }
 
-    public Collection getDeck() {
+    public Deck getDeck() {
         return deck;
     }
 }

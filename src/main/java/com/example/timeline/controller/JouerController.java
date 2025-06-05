@@ -5,7 +5,7 @@ import com.example.timeline.board.PileOfCards;
 import com.example.timeline.board.Player;
 import com.example.timeline.board.Timeline;
 import com.example.timeline.collection.Card;
-import com.example.timeline.collection.Collection;
+import com.example.timeline.collection.Deck;
 import com.example.timeline.view.CardViewOnHand;
 import javafx.application.Platform;
 import javafx.fxml.FXML;
@@ -44,7 +44,7 @@ public class JouerController {
 
 	public void initialization() {
 		initUI();
-		Collection deck = new Collection();
+		Deck deck = new Deck("Test");
 		List<Player> players = new ArrayList<>();
 		Player player = new Player("Manu");
 		players.add(player);
