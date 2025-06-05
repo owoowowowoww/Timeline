@@ -28,7 +28,7 @@ public class CardOnHandController {
 	}
 
 	public void selectAction() {
-		mainController.setCardSelected(controlledCard);
+		mainController.setCardSelectedHand(controlledCard);
 	}
 
 	public void setView(CardView cardView) {

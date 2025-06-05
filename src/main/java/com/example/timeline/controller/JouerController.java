@@ -136,13 +136,14 @@ public class JouerController {
         }
     }
 
+
     private void displayBoard() {
         List<Card> boardCards = model.getTimeline();
-        board.getChildren().clear(); // important !
+        board.getChildren().clear();
 
         for (Card aCard : boardCards) {
-            CardOnHandController controller = new CardOnHandController(aCard, this);
-            CardViewOnBoard view = new CardViewOnBoard(controller);
+            CardOnBoardController controller = new CardOnBoardController(aCard, this);
+            CardViewOnBoard view = new CardViewOnBoard(controller, true);
             board.getChildren().add(view);
         }
     }
@@ -151,10 +152,16 @@ public class JouerController {
         initialization();
     }
 
-    public void setCardSelected(Card controlledCard) {
+    public void setCardSelectedHand(Card controlledCard) {
         selectedCard = controlledCard;
         playerHand.getChildren().clear();
         displayPlayerHand();
+    }
+
+    public void setCardSelectedBoard(Card controlledCard) {
+        selectedCard = controlledCard;
+        selectedCard.getDescription();
+        openWindowsWinner();
     }
 
 
