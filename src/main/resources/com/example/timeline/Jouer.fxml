@@ -18,22 +18,22 @@
     <center>
         <VBox alignment="CENTER" prefHeight="346.0" prefWidth="950.0" spacing="20">
             <children>
-                <ScrollPane fx:id="scrollPane" fitToHeight="true" hbarPolicy="NEVER" pannable="true" vbarPolicy="NEVER">
-                    <content>
-                        <AnchorPane fx:id="anchorPane" style="-fx-background-color: #00000000;">
-                            <children>
-                                <HBox fx:id="board" alignment="CENTER" prefWidth="950.0" />
-                            </children>
-                        </AnchorPane>
-                    </content>
-                    <padding>
-                        <Insets left="10.0" right="10.0" />
-                    </padding>
-                </ScrollPane>
+            <ScrollPane fx:id="scrollPane" fitToHeight="true" hbarPolicy="NEVER" pannable="true" vbarPolicy="NEVER">
+              <content>
+                <AnchorPane fx:id="anchorPane" style="-fx-background-color: #00000000;">
+                     <children>
+                            <HBox fx:id="board" alignment="CENTER" prefWidth="950.0" />
+                     </children>
+                  </AnchorPane>
+              </content>
+               <padding>
+                  <Insets left="10.0" right="10.0" />
+               </padding>
+            </ScrollPane>
             </children>
-            <padding>
-                <Insets left="10.0" right="10.0" />
-            </padding>
+         <padding>
+            <Insets left="10.0" right="10.0" />
+         </padding>
         </VBox>
     </center>
 
@@ -42,55 +42,55 @@
             <center>
                 <HBox fx:id="playerHand" alignment="CENTER" prefHeight="150.0" prefWidth="900.0" style="-fx-background-color: transparent;" />
             </center>
-            <bottom>
-                <AnchorPane prefHeight="45.0" prefWidth="950.0" BorderPane.alignment="CENTER">
-                    <children>
-                        <Label fx:id="titreDeck" alignment="CENTER" contentDisplay="CENTER" layoutX="175.0" layoutY="4.0" prefHeight="45.0" prefWidth="600.0" text="Titre du deck" textAlignment="CENTER" textFill="WHITE">
-                            <font>
-                                <Font size="30.0" />
-                            </font>
-                        </Label>
-                        <Label fx:id="scoreLabel" layoutX="858.0" layoutY="7.0" text="Score : 0" textFill="WHITE">
-                            <font>
-                                <Font size="24.0" />
-                            </font>
-                        </Label>
-                    </children>
-                </AnchorPane>
-            </bottom>
+         <bottom>
+            <AnchorPane prefHeight="45.0" prefWidth="950.0" BorderPane.alignment="CENTER">
+               <children>
+                  <Label fx:id="titreDeck" alignment="CENTER" contentDisplay="CENTER" layoutX="175.0" layoutY="4.0" prefHeight="45.0" prefWidth="600.0" text="Titre du deck" textAlignment="CENTER" textFill="WHITE">
+                     <font>
+                        <Font size="30.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="scoreLabel" layoutX="858.0" layoutY="7.0" text="Score : 0" textFill="WHITE">
+                     <font>
+                        <Font size="24.0" />
+                     </font>
+                  </Label>
+               </children>
+            </AnchorPane>
+         </bottom>
         </BorderPane>
     </bottom>
-    <top>
-        <VBox prefHeight="62.0" prefWidth="950.0" BorderPane.alignment="CENTER">
-            <children>
-                <MenuBar>
-                    <menus>
-                        <Menu mnemonicParsing="false" text="Partie">
-                            <items>
-                                <MenuItem mnemonicParsing="false" onAction="#newGameAction" text="Nouvelle partie 1J" />
-                            </items>
-                        </Menu>
-                        <Menu mnemonicParsing="false" text="À propos">
-                            <items>
-                                <MenuItem mnemonicParsing="false" text="About" />
-                            </items>
-                        </Menu>
-                    </menus>
-                </MenuBar>
-                <AnchorPane prefHeight="39.0" prefWidth="950.0">
-                    <children>
-                        <Label fx:id="timeWatch" alignment="CENTER" contentDisplay="CENTER" layoutX="880.0" text="0" textAlignment="CENTER" textFill="WHITE">
-                            <font>
-                                <Font size="30.0" />
-                            </font>
-                        </Label>
-                        <Label fx:id="messageLabel" layoutX="52.0" prefHeight="46.0" prefWidth="281.0">
-                            <font>
-                                <Font size="18.0" />
-                            </font></Label>
-                    </children>
-                </AnchorPane>
-            </children>
-        </VBox>
-    </top>
+   <top>
+      <VBox prefHeight="62.0" prefWidth="950.0" BorderPane.alignment="CENTER">
+         <children>
+              <MenuBar>
+                  <menus>
+                      <Menu mnemonicParsing="false" text="Partie">
+                          <items>
+                              <MenuItem mnemonicParsing="false" onAction="#newGameAction" text="Nouvelle partie 1J" />
+                          </items>
+                      </Menu>
+                      <Menu mnemonicParsing="false" text="À propos">
+                          <items>
+                              <MenuItem mnemonicParsing="false" text="About" />
+                          </items>
+                      </Menu>
+                  </menus>
+              </MenuBar>
+            <AnchorPane prefHeight="39.0" prefWidth="950.0">
+               <children>
+                  <Label fx:id="timeWatch" alignment="CENTER" contentDisplay="CENTER" layoutX="880.0" text="0" textAlignment="CENTER" textFill="WHITE">
+                     <font>
+                        <Font size="30.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="messageLabel" layoutX="52.0" prefHeight="46.0" prefWidth="281.0">
+                     <font>
+                        <Font size="18.0" />
+                     </font></Label>
+               </children>
+            </AnchorPane>
+         </children>
+      </VBox>
+   </top>
 </BorderPane>
