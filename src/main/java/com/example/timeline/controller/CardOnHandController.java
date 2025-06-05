@@ -3,6 +3,7 @@ package com.example.timeline.controller;
 import com.example.timeline.collection.Card;
 import com.example.timeline.util.ImageManager;
 import com.example.timeline.view.CardView;
+import com.example.timeline.view.CardViewOnBoard;
 
 public class CardOnHandController {
 
@@ -19,6 +20,10 @@ public class CardOnHandController {
 		if (view != null) {
 			view.setTitle(controlledCard.getTitle());
 			view.setCardImage(ImageManager.getInstance().getImage(controlledCard.getImage()));
+
+			if (view instanceof CardViewOnBoard boardView) {
+				boardView.setCardDate(controlledCard.getDate());
+			}
 		}
 	}
 
