@@ -8,4 +8,5 @@ module com.example.timeline {
     exports com.example.timeline;
     exports com.example.timeline.controller;
     opens com.example.timeline.controller to javafx.fxml;
+    opens com.example.timeline.collection to com.fasterxml.jackson.databind;
 }

@@ -8,23 +8,18 @@ public class Card {
     private String image;
     private String title;
     private int date;
-	private int position;
 	private String description;
 
-	public Card(String title, int date, int position, String urlImage) {
+	public Card() {
 		super();
-		this.title = title;
-		this.date = date;
-		this.position = position;
-		this.image = urlImage;
 	}
 
-	public Card(CardPOJO cardP, int position) {
-		super();
-		this.title = cardP.name;
-		this.date = cardP.date;
-		this.position = position;
-		this.image = cardP.url;
+	public Card(String title, int date, String image, String description) {
+		this();
+		this.title = title;
+		this.date = date;
+		this.image = image;
+		this.description = description;
 	}
 
 	public String getImage() {
@@ -35,10 +30,6 @@ public class Card {
 		return title;
 	}
 
-	public void setTitle(String title) {
-		this.title = title;
-	}
-
 	public int getDate() {
 		return date;
 	}
@@ -47,7 +38,26 @@ public class Card {
 		return description;
 	}
 
+	public void setImage(String image) {
+		this.image = image;
+	}
 
+	public void setTitle(String title) {
+		this.title = title;
+	}
+
+	public void setDate(int date) {
+		this.date = date;
+	}
+
+	public void setDescription(String description) {
+		this.description = description;
+	}
+
+	@Override
+	public String toString() {
+		return title + " [" + date + "] [" + description + "]";
+	}
 
 	@Override
 	public boolean equals(Object o) {

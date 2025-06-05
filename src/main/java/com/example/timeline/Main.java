@@ -1,5 +1,7 @@
 package com.example.timeline;
 
+import com.example.timeline.collection.Card;
+import com.example.timeline.collection.Deck;
 import com.example.timeline.controller.AcceuilController;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
@@ -26,6 +28,37 @@ public class Main extends Application {
     }
 
     public static void main(String[] args) {
+
+
+
+        Deck.load("data/data.json");
+        Deck jeuDeCartes = new Deck("Test");
+        Deck jeuDeCartes2 = new Deck("Test2");
+
+
+        try {
+
+            for (Card carte : jeuDeCartes.getCards()) {
+                System.out.println(carte);
+            }
+
+
+
+            Card nCarte = new Card(
+                    "Carte n°4",
+                    2006,
+                    "",
+                    "Description de la carte n°4"
+            );
+
+            jeuDeCartes2.addCarte(nCarte);
+
+            Deck.save("data/data.json");
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
         launch();
     }
 }
