@@ -104,6 +104,10 @@ public class Deck { // nouveau deck
         return title;
     }
 
+    public void setTitle(String title){
+        this.title = title;
+    }
+
     public Card drawCard() {
         if (isEmpty())
             return null;
@@ -112,6 +116,10 @@ public class Deck { // nouveau deck
 
     public boolean isEmpty() {
         return cards.isEmpty();
+    }
+
+    public String toString(){
+        return title;
     }
 
 }
