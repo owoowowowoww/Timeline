@@ -30,6 +30,9 @@ public class JouerController {
         this.mainStage = stage;
     }
 
+    @FXML
+    private Label messageLabel;
+
 	@FXML
 	private Label scoreLabel;
 
@@ -149,9 +152,18 @@ public class JouerController {
         board.setOnDragDropped(event -> {
             Dragboard db = event.getDragboard();
             boolean success = false;
+
             if (db.hasString() && selectedCard != null) {
                 int position = calculateDropPosition(event.getX());
-                model.playTurn(selectedCard, position);
+
+                if (model.playTurn(selectedCard, position)) {
+                    messageLabel.setText("Bonne réponse !");
+                    messageLabel.setStyle("-fx-text-fill: green;");
+                } else {
+                    messageLabel.setText("Mauvaise réponse !");
+                    messageLabel.setStyle("-fx-text-fill: red;");
+                }
+
                 selectedCard = null;
                 success = true;
                 refresh();
