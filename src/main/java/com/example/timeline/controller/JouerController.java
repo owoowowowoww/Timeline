@@ -71,6 +71,8 @@ public class JouerController {
 
     private int initialSeconds;
 
+    private String selectedCardDescription = "";
+
     public void setSeconds(int seconds) {
         this.seconds = seconds;
         initialSeconds = seconds;
@@ -161,8 +163,25 @@ public class JouerController {
 
     public void setCardSelectedBoard(Card controlledCard) {
         selectedCard = controlledCard;
-        selectedCard.getDescription();
-        openWindowsWinner();
+        selectedCardDescription = selectedCard.getDescription();
+        openWindowsDescription();
+    }
+
+    private void openWindowsDescription() {
+        try {
+            Stage descriptionCardStage = new Stage();
+            FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource("DescriptionCard.fxml"));
+            Scene descriptionCardScene = new Scene(fxmlLoader.load());
+            DescriptionCardController controller = fxmlLoader.getController();
+            descriptionCardStage.setScene(descriptionCardScene);
+            descriptionCardStage.initModality(Modality.WINDOW_MODAL);
+            descriptionCardStage.initOwner(mainStage);
+            descriptionCardStage.show();
+            controller.mainStage = descriptionCardStage;
+            controller.setDescription(selectedCardDescription);
+        } catch (IOException e) {
+            System.err.println("Problem while loading the description card fxml");
+        }
     }
 
 
