@@ -56,9 +56,13 @@ public class CardViewOnHand extends VBox {
 
                 SnapshotParameters snapParams = new SnapshotParameters();
                 snapParams.setFill(Color.TRANSPARENT);
-                db.setDragView(this.snapshot(snapParams, null));
+				db.setDragView(
+						this.snapshot(snapParams, null),
+						event.getX(),
+						event.getY()
+				);
 
-                event.consume();
+				event.consume();
             });
 
             this.setOnDragDone(event -> {
