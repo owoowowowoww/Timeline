@@ -48,7 +48,11 @@ public class ParametrePartieController {
         jouerScene.getStylesheets().add(Main.class.getResource("style.css").toExternalForm());
         JouerController controller = fxmlLoader.getController();
         controller.setStage(mainStage);
-        controller.setSeconds(Integer.parseInt(timeAnwser.getText()));
+        if (timeAnwser.getText().isEmpty()) {
+            controller.setSeconds(30);
+        } else {
+            controller.setSeconds(Integer.parseInt(timeAnwser.getText()));
+        }
         if (nbJoueur == 0) {
             controller.setNbJoueur(NB_JOUEUR);
         } else {

@@ -184,6 +184,8 @@ public class JouerController {
                 selectedCard = null;
                 success = true;
                 refresh();
+                doFadeOutEnding();
+
             }
             board.getChildren().remove(dropPreview);
             event.setDropCompleted(success);
