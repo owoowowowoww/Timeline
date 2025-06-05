@@ -1,4 +1,4 @@
-package com.example.timeline.Controller;
+package com.example.timeline.controller;
 
 import com.example.timeline.Main;
 import javafx.event.ActionEvent;
@@ -24,7 +24,7 @@ public class ParametrePartieController {
     }
 
     @FXML
-    void onClickSetNbJoueur(ActionEvent event) {
+    void onClickNbJoueur(ActionEvent event) {
         Button sourceButton = (Button)event.getSource();
         String val = sourceButton.getText();
         if(val.equals("1 joueur")){

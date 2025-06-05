@@ -2,7 +2,7 @@ package com.example.timeline.view;
 
 import java.io.IOException;
 
-import com.example.timeline.Controller.CardOnHandController;
+import com.example.timeline.controller.CardOnHandController;
 import javafx.fxml.FXMLLoader;
 import javafx.geometry.Pos;
 import javafx.scene.Parent;

@@ -9,7 +9,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane prefHeight="500.0" prefWidth="900.0" style="-fx-background-color: #222f;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.timeline.Controller.JouerController">
+<BorderPane prefHeight="500.0" prefWidth="900.0" style="-fx-background-color: #222f;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.timeline.controller.JouerController">
    <center>
       <VBox alignment="CENTER">
          <children>

@@ -9,7 +9,7 @@ public class Timeline {
 
     private static final int INITIAL_NB_CARDS = 6;
     private Player player1;
-    private Collection deck;
+    private Collection collection;
 
     private List<Player> players;
     private PileOfCards drawPile;
@@ -142,15 +142,15 @@ public class Timeline {
     }
 
     public Collection getDeck() {
-        return deck;
+        return collection;
     }
 
     private void setupGame() {
         player1 = new Player("Joueur 1");
-        deck = new Collection();
+        collection = new Collection();
 
         for (int i = 0; i < INITIAL_NB_CARDS; i++) {
-            player1.addInHandCard(deck.drawCard());
+            player1.addInHandCard(collection.drawCard());
         }
     }
 }

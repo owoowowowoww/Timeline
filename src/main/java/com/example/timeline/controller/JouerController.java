@@ -1,4 +1,4 @@
-package com.example.timeline.Controller;
+package com.example.timeline.controller;
 
 
 import com.example.timeline.board.PileOfCards;

@@ -1,6 +1,6 @@
 package com.example.timeline;
 
-import com.example.timeline.Controller.AcceuilController;
+import com.example.timeline.controller.AcceuilController;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
