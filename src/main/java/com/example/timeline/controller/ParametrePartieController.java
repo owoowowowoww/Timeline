@@ -13,7 +13,7 @@ import java.io.IOException;
 
 public class ParametrePartieController {
     private static final int NB_JOUEUR = 1;
-    private int nbJoueur;
+    private int nbJoueur = 0;
     public Stage mainStage;
 
     @FXML
@@ -25,12 +25,12 @@ public class ParametrePartieController {
 
     @FXML
     void onClickSetNbJoueur(ActionEvent event) {
-        Button sourceButton = (Button)event.getSource();
+        Button sourceButton = (Button) event.getSource();
         String val = sourceButton.getText();
-        if(val.equals("1 joueur")){
+        if (val.equals("1 joueur")) {
             nbJoueur = 1;
         }
-        if(val.equals("2 joueurs")){
+        if (val.equals("2 joueurs")) {
             nbJoueur = 2;
         }
     }
@@ -49,15 +49,20 @@ public class ParametrePartieController {
         JouerController controller = fxmlLoader.getController();
         controller.setStage(mainStage);
         controller.setSeconds(Integer.parseInt(timeAnwser.getText()));
+        if (nbJoueur == 0) {
+            controller.setNbJoueur(NB_JOUEUR);
+        } else {
+            controller.setNbJoueur(nbJoueur);
+        }
         controller.initialization();
     }
 
-    public int getTimeAnswer(){
+    public int getTimeAnswer() {
         return Integer.parseInt(timeAnwser.getText());
     }
 
     @FXML
-    void onClickRetour(ActionEvent event) throws IOException{
+    void onClickRetour(ActionEvent event) throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource("Acceuil.fxml"));
         Scene acceuilScene = new Scene(fxmlLoader.load(), 950, 635);
         mainStage.setTitle("Acceuil");
