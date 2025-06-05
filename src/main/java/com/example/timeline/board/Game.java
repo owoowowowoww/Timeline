@@ -45,39 +45,44 @@ public class Game {
         }
     }
 
-    public void playTurn(Card chosenCard, int position) {
-        Player currentPlayer = players.get(0); // Un seul joueur
+    public boolean playTurn(Card chosenCard, int position) {
+        Player currentPlayer = players.get(currentPlayerIndex);
         PileOfCards hand = currentPlayer.getHand();
 
         if (!hand.contains(chosenCard)) {
             System.out.println("Cette carte n'est pas dans votre main !");
-            return;
+            return false;
         }
 
         boolean isCorrect = isCorrectPosition(chosenCard, position);
 
-        // Supprimer la carte de la main
-        hand.removeCard(chosenCard);
-
         if (isCorrect) {
-            board.add(Math.min(position, board.size()), chosenCard);
+            int safePosition = Math.min(position, board.size());
+            board.add(safePosition, chosenCard);
+            hand.removeCard(chosenCard);
             scores.put(currentPlayer, scores.get(currentPlayer) + 1);
             System.out.println(currentPlayer.getName() + " a correctement placé sa carte.");
         } else {
-            System.out.println("Mauvaise position !");
+            System.out.println("Mauvaise position ! Pioche d'une carte.");
             insertCardInTimeline(chosenCard);
+            hand.removeCard(chosenCard);
+
         }
 
         if (!drawPile.isEmpty()) {
             hand.receiveCard(drawPile.drawCard());
         }
 
-        // Fin du jeu : si la pioche ET la main sont vides
-        if (drawPile.isEmpty() && hand.isEmpty()) {
+        if (hand.isEmpty()) {
             gameEnded = true;
             showFinalScores();
+        } else {
+            nextPlayer();
         }
+
+        return isCorrect;
     }
+
 
 
     private boolean isCorrectPosition(Card card, int position) {
@@ -138,6 +143,6 @@ public class Game {
     }
 
     public int getScore() {
-        return scores.get(players.get(0));
+        return scores.get(players.getFirst());
     }
 }
