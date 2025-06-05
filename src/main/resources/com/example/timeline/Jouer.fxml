@@ -12,7 +12,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane fx:id="rootPane" prefHeight="635.0" prefWidth="950.0" styleClass="jouer-background" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.timeline.controller.JouerController">
+<BorderPane fx:id="rootPane" prefHeight="635.0" prefWidth="950.0" styleClass="jouer-background" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.timeline.controller.JouerController">
     <top>
         <MenuBar BorderPane.alignment="CENTER">
             <menus>
@@ -52,14 +52,26 @@
                 <HBox fx:id="playerHand" alignment="CENTER" prefHeight="150.0" prefWidth="900.0" style="-fx-background-color: transparent;" />
             </center>
          <bottom>
-                <Label fx:id="titreDeck" alignment="CENTER" prefHeight="43.0" prefWidth="578.0" style="-fx-font-size: 30px; -fx-font-weight: bold;" text="Titre du deck" textAlignment="CENTER" textFill="WHITE" wrapText="true" BorderPane.alignment="CENTER">
-                    <font>
+            <HBox prefHeight="0.0" prefWidth="950.0" BorderPane.alignment="CENTER">
+               <children>
+                  <Label fx:id="titreDeck" alignment="CENTER" contentDisplay="CENTER" prefHeight="45.0" prefWidth="600.0" text="Titre du deck" textFill="WHITE">
+                     <font>
                         <Font size="30.0" />
-                    </font>
-               <BorderPane.margin>
-                  <Insets bottom="10.0" />
-               </BorderPane.margin>
-                </Label>
+                     </font>
+                     <HBox.margin>
+                        <Insets left="300.0" />
+                     </HBox.margin>
+                  </Label>
+                  <Label fx:id="scoreLabel" alignment="CENTER" contentDisplay="RIGHT" prefHeight="45.0" prefWidth="140.0" text="0" textFill="WHITE">
+                     <font>
+                        <Font size="24.0" />
+                     </font>
+                     <HBox.margin>
+                        <Insets left="50.0" />
+                     </HBox.margin>
+                  </Label>
+               </children>
+            </HBox>
          </bottom>
         </BorderPane>
     </bottom>
