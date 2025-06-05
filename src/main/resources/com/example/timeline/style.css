@@ -34,12 +34,12 @@
     -fx-font-weight: bold;
     -fx-background-color: transparent;
 }
-
 .jouer-background {
     -fx-background-image: url("image/implato.png");
     -fx-background-size: cover;
     -fx-background-repeat: no-repeat;
-    -fx-background-position: center;
+    -fx-background-position: center center;
+
 }
 
 .regle-textflow {
@@ -63,4 +63,44 @@
     -fx-font-weight: bold;
     -fx-background-color: transparent;
     -fx-text-fill: white;
+}
+
+.menu-bar {
+    -fx-background-color: transparent;
+    -fx-border-color: transparent;
+    -fx-background-insets: 0;
+    -fx-padding: 0;
+}
+
+.menu {
+    -fx-background-color: transparent;
+}
+
+.menu .label {
+    -fx-text-fill: white;
+    -fx-font-size: 16px;
+    -fx-font-weight: bold;
+}
+
+.menu-item {
+    -fx-background-color: transparent;
+}
+
+.menu-item:hover {
+    -fx-background-color: rgba(255, 255, 255, 0.1); /* survol optionnel */
+}
+
+.menu-item:focused {
+    -fx-background-color: transparent;
+}
+
+.menu-item .label {
+    -fx-text-fill: white;
+}
+
+.context-menu {
+    -fx-background-color: transparent;
+    -fx-border-color: transparent;
+    -fx-background-insets: 0;
+    -fx-padding: 0;
 }
