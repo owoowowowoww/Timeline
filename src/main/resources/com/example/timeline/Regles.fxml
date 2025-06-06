@@ -1,17 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.Button?>
-<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.TextFlow?>
 
-<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.timeline.Controller.ReglesController">
+<AnchorPane prefHeight="635.0" prefWidth="950.0" styleClass="regle-background" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/23.0.1" fx:controller="com.example.timeline.controller.ReglesController">
+
    <children>
-      <Label layoutX="230.0" layoutY="149.0" text="Regles">
-         <font>
-            <Font size="48.0" />
-         </font>
-      </Label>
-      <Button layoutX="69.0" layoutY="321.0" mnemonicParsing="false" onAction="#onClickRetour" text="retour" />
+      <TextFlow fx:id="regleFlow" layoutX="247.0" layoutY="180.0" prefHeight="370.0" prefWidth="564.0" styleClass="regle-textflow" />
+
+      <Button fx:id="btnRetour" layoutX="30.0" layoutY="580.0" onAction="#onClickRetour" prefHeight="40.0" prefWidth="293.0" styleClass="btacceuil" text="Retour" />
+      <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="375.0" layoutY="134.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@image/Regle/imtitrereg.png" />
+         </image>
+      </ImageView>
    </children>
 </AnchorPane>
