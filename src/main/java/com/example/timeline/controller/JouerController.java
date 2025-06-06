@@ -92,7 +92,7 @@ public class JouerController {
 
     public void initialization() {
         initUI();
-        Deck deck = selectedDeck != null ? selectedDeck : new Deck("Langages par défaut");
+        Deck deck = selectedDeck != null ? selectedDeck : new Deck("Test");
         List<Player> players = new ArrayList<>();
         Player player = new Player("Manu");
         players.add(player);
@@ -169,6 +169,8 @@ public class JouerController {
         openWindowsDescription();
     }
 
+
+
     private void openWindowsDescription() {
         try {
             Stage descriptionCardStage = new Stage();
@@ -214,6 +216,10 @@ public class JouerController {
                 success = true;
                 refresh();
                 doFadeOutEnding();
+                if(model.isGameEnded()){
+                    openWindowsWinner();
+                    chrono.stop();
+                }
 
             }
             board.getChildren().remove(dropPreview);
