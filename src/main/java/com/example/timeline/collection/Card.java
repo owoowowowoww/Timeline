@@ -58,7 +58,7 @@ public class Card {
 
     @Override
     public String toString() {
-        return title + " [" + date + "] [" + description + "]";
+        return title;
     }
 
     @Override
